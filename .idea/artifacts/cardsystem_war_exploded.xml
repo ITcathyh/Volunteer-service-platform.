@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="cardsystem" />
+          <element id="module-output" name="pairsystem" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
@@ -48,7 +48,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/pairsystem/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="cardsystem/web/Web" />
+      <element id="javaee-facet-resources" facet="pairsystem/web/Web" />
     </root>
   </artifact>
 </component>

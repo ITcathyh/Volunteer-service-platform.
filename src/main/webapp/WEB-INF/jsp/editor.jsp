@@ -250,7 +250,7 @@
                         </div>
 
                         <div class="box-footer">
-                            <button type="submit" id="updateemail" class="btn btn-primary" onclick="pwdCheck()">修改
+                            <button id="alteremailinfo" class="btn btn-primary">修改
                             </button>
                         </div>
 
@@ -275,7 +275,28 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/pair.js"></script>
-<script src="js/spin.js"></script>
-<script src="js/ladda.js"></script>
+<script type="text/javascript" src="js/spin.min.js"></script>
+<script type="text/javascript" src="js/ladda.min.js"></script>
+<script type="text/javascript">
+    $("#alteremailinfo").click(function () {
+        var add1 = $("#address1").val();
+        var add2 = $("#address2").val();
+        var add3 = $("#address3").val();
+        var pwd1 = $("#pwd1").val();
+        var pwd2 = $("#pwd2").val();
+        var pwd3 = $("#pwd3").val();
+        var host1 = $("#host1").val();
+        var host2 = $("#host2").val();
+        var host3 = $("#host3").val();
+
+        if (add1 == "" || add2 == "" || add3 == "" ||
+            pwd1 == "" || pwd2 == "" || pwd3 == "" ||
+            host1 == "" || host2 == "" || host3 == "") {
+            showerror("请不要留空");
+        } else {
+            updateemail(add1, add2, add3, pwd1, pwd2, pwd3, host1, host2, host3);
+        }
+    });
+</script>
 </body>
 </html>

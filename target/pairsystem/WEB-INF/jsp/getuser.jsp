@@ -25,11 +25,6 @@
 </head>
 
 <body class="skin-blue">
-<!-- Site wrapper -->
-
-<%
-    System.out.println(request.getAttribute("userinfo"));
-%>
 <div class="wrapper">
 
     <header class="main-header">
