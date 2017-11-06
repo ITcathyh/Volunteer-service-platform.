@@ -119,7 +119,7 @@ public class Pair {
         int len = users.size();
         int size = len / 3 + 1;
 
-        if (size < 1) {
+        if (size < 2) {
             size = 3;
             stacks = new Stack[]{new Stack<AppEmail>()};
         } else {
@@ -153,10 +153,8 @@ public class Pair {
                 Thread.sleep(2000);
 
                 while (!email.isOver()) {
-                    Thread.sleep(500);
+                    Thread.sleep(400);
                 }
-
-                return len;
             } catch (Exception e) {
                 return -1;
             }

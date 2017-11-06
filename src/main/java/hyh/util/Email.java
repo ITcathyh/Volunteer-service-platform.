@@ -28,12 +28,13 @@ public class Email {
     @Resource(name = "mailSender2")
     private JavaMailSenderImpl mailsender2;
     private static final String TITLE = "东北大学活动提醒";
-    private static short cot = 0;
+    volatile private static short cot = 0;
     volatile private static short sendcot = 0;
     volatile private static boolean send[] = new boolean[3];
 
     @Async
     public void sendEmail(Stack<AppEmail> stack, String genre, UserService userservice, int type) {
+        JavaMailSenderImpl sender = getSender();
         short nowcot = 0;
 
         if (type == 1) {
@@ -46,7 +47,6 @@ public class Email {
         }
 
         AppEmail appemail;
-        JavaMailSenderImpl sender = getSender();
 
         while (!stack.empty()) {
             appemail = stack.pop();

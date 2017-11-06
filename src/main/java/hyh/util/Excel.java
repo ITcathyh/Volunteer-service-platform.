@@ -18,7 +18,6 @@ import java.util.concurrent.Callable;
 
 public class Excel {
     private static Logger log = Logger.getLogger("hyh.tuil.Excel");
-    private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 
     public static boolean write(String path, String filenmame, ArrayList<BaseUser> list) {
         if (!makeFolder(path)) {
@@ -46,10 +45,6 @@ public class Excel {
         } else {
             return true;
         }
-    }
-
-    public static String getDeaLTime(){
-        return sdf.format(new Date());
     }
 
     private static void write(HSSFRow row, BaseUser user) {

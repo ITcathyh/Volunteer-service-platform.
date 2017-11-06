@@ -7,6 +7,7 @@ import hyh.service.TeacherService;
 import hyh.service.UserInfoService;
 import hyh.service.UserService;
 import hyh.util.Excel;
+import hyh.util.TimeUtil;
 import hyh.util.Zip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -77,7 +78,7 @@ public class FileController {
             e.printStackTrace();
         }
 
-        String path = Variable.authpath + Excel.getDeaLTime() + "/";
+        String path = Variable.authpath + TimeUtil.getDeaLTime() + "/";
         String filename;
         File file = new File(path);
 
@@ -115,7 +116,7 @@ public class FileController {
     @ResponseBody
     public String makeExcel(HttpServletRequest request) {
         ArrayList<BaseUser> list = new ArrayList<BaseUser>();
-        String path = Variable.excelpath + Excel.getDeaLTime() + "/";
+        String path = Variable.excelpath + TimeUtil.getDeaLTime() + "/";
 
         list.addAll(userservice.getByType(1));
 
@@ -142,7 +143,7 @@ public class FileController {
     @RequestMapping("/adminmakeauthdatazip")
     @ResponseBody
     public String makeAuthDataZip() {
-        String path = Variable.authpath + Excel.getDeaLTime() + "/";
+        String path = Variable.authpath + TimeUtil.getDeaLTime() + "/";
 
         if (Zip.fileToZip(path, Variable.authpath, "authdata")) {
             return "done";

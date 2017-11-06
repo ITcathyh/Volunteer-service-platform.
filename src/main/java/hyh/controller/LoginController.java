@@ -22,14 +22,6 @@ import java.io.File;
 @Controller
 public class LoginController {
     @Autowired
-    private UserService userservice;
-    @Autowired
-    private UserInfoService userinfoservice;
-    @Autowired
-    private TeacherService teacherservice;
-    @Autowired
-    private StudentService studentservice;
-    @Autowired
     private Admin admin;
 
     @RequestMapping("/login")

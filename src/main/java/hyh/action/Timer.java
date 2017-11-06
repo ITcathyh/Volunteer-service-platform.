@@ -9,6 +9,7 @@ import hyh.service.UserService;
 import hyh.util.Email;
 import hyh.util.Excel;
 import hyh.util.GetRandomString;
+import hyh.util.TimeUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -34,7 +35,7 @@ public class Timer {
     public void clear() {
         Variable.brerurl = GetRandomString.getRandomString(10);
         ArrayList<BaseUser> list = new ArrayList<BaseUser>();
-        String path = Variable.excelpath + Excel.getDeaLTime() + "\\";
+        String path = Variable.excelpath + TimeUtil.getDeaLTime() + "\\";
 
         list.addAll(userservice.getByType(1));
 
@@ -51,11 +52,11 @@ public class Timer {
                 userservice.deleteAll();
             } else {
                 Variable.errornum++;
-                log.fatal("Can not delete data.Cause By excel error");
+                log.fatal("Can not delete data.Cause By excel error\n");
             }
         } else {
             Variable.errornum++;
-            log.fatal("Can not delete data.Cause By excel error");
+            log.fatal("Can not delete data.Cause By excel error\n");
         }
     }
 

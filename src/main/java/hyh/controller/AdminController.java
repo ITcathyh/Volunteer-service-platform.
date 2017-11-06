@@ -39,9 +39,11 @@ public class AdminController {
     @RequestMapping("/admin")
     public String getToAdmin(HttpServletRequest request) {
         if (assiturl == null) {
-            String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
-            assiturl = basePath + "assist";
-            breurl = basePath + "breakfast?id=";
+            StringBuffer url = request.getRequestURL();
+            String tempContextUrl = url.delete(url.length() - request.getRequestURI().length(), url.length()).append("/").toString();
+            //String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
+            assiturl = tempContextUrl + "assist";
+            breurl = tempContextUrl + "breakfast?id=";
         }
 
         request.setAttribute("brepairnum", userservice.getFreeCountByType(1));
@@ -81,7 +83,7 @@ public class AdminController {
                                    @RequestParam("add2") String add2,
                                    @RequestParam("add3") String add3,
                                    @RequestParam("pwd1") String pwd1,
-                                   @RequestParam("pwd3") String pwd2,
+                                   @RequestParam("pwd2") String pwd2,
                                    @RequestParam("pwd3") String pwd3,
                                    @RequestParam("host1") String host1,
                                    @RequestParam("host2") String host2,
@@ -129,13 +131,14 @@ public class AdminController {
     @RequestMapping("/adminsendbrepairinfo")
     @ResponseBody
     public String sendBrePairInfo() {
-        int result = Pair.sendPairEmail(email, userservice, 1);
-
-        if (result == -1) {
+        if (Pair.sendPairEmail(email, userservice, 1) == -1) {
             return "error";
         }
 
-        return Integer.toString(userservice.getCountByStatusAndType(1, 1) * 100 / result);
+        int sended = userservice.getCountByStatusAndType(1, 1);
+
+        return Integer.toString(sended * 100 /
+                (userservice.getCountByStatusAndType(1, 0)) + sended);
     }
 
     @RequestMapping("/adminalterinfo")
