@@ -233,7 +233,7 @@ $(document).on("click", "#submitaddteacher", function (e) {
 /* apply teacher end */
 
 /*self-studying begin */
-function addstudying(name, studentid, qq, email, phone) {
+function addstudying(name, studentid, qq, email, phone,la) {
     $.ajax({
         data: "name=" + name + "&studentid=" + studentid +
         "&qq=" + qq + "&email=" + email + "&phone=" + phone + "&college=" + $("#college").val() +
@@ -243,9 +243,11 @@ function addstudying(name, studentid, qq, email, phone) {
         url: "/checkaddstudying",
         dataType: "json",
         error: function (data) {
+            la.stop();
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
+            la.stop();
             if (response == "error") {
                 showerror("提交失败，请稍后重试");
                 return false;
@@ -273,7 +275,10 @@ $(document).on("click", "#submitaddstudying", function (e) {
     var phone = $("#phone").val();
 
     if (check(name, studentid, qq, email, phone)) {
-        addstudying(name, studentid, qq, email, phone);
+        var la = Ladda.create(document.querySelector("#submitaddstudying"));
+        la.start();
+
+        addstudying(name, studentid, qq, email, phone,la);
     }
 });
 /*self-studying end */
