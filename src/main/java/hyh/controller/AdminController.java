@@ -55,6 +55,7 @@ public class AdminController {
         request.setAttribute("bremaxnum", Variable.bremaxnum);
         request.setAttribute("errornum", Variable.errornum);
         request.setAttribute("title", Variable.title);
+        request.setAttribute("logo", Variable.logo);
 
         return "admin";
     }
@@ -140,10 +141,12 @@ public class AdminController {
     @RequestMapping("/adminalterinfo")
     @ResponseBody
     public String changeBrenum(@RequestParam("bremaxnum") int bremaxnum,
-                               @RequestParam("title") String title) {
+                               @RequestParam("title") String title,
+                               @RequestParam("logo") String logo) {
         try {
             Variable.bremaxnum = bremaxnum;
             Variable.title = title;
+            Variable.logo = logo;
         } catch (Exception e) {
             return "error";
         }

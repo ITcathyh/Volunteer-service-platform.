@@ -42,7 +42,7 @@
 <!-- Site wrapper -->
 <div class="wrapper">
     <header class="main-header">
-        <a href="#" class="logo">ITcat</a>
+        <a class="logo"><%=Variable.logo%></a>
         <nav class="navbar navbar-static-top" role="navigation">
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" id="menu">
                 <span class="sr-only">Toggle navigation</span>

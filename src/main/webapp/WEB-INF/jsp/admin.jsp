@@ -28,7 +28,7 @@
 <div class="wrapper">
 
     <header class="main-header">
-        <a href="/admin" class="logo">ITcat</a>
+        <a class="logo"><%=Variable.logo%></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
@@ -229,6 +229,15 @@
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="title" autocomplete="off"
                                                value="${title}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">设置Logo</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="logo" autocomplete="off"
+                                               value="${logo}">
                                     </div>
                                 </div>
                             </div>

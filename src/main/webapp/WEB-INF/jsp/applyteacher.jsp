@@ -17,19 +17,19 @@
     <base href=" <%=basepath%>">
     <title>智慧东大</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- Bootstrap 3.3.2 -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/ionicons.min.css" rel="stylesheet">
     <link href="css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/all-skins.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/ladda-themeless.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class="skin-blue">
 <!-- Site wrapper -->
 <div class="wrapper">
 
     <header class="main-header">
-        <a href="#" class="logo">ITcat</a>
+        <a class="logo"><%=Variable.logo%></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" id="menu">
@@ -215,8 +215,8 @@
                         </div>
 
                         <div class="box-footer">
-                            <button type="button" id="submitaddteacher" class="btn btn-primary">
-                                提交信息
+                            <button id="submitaddteacher" class="btn btn-primary ladda-button" data-style="zoom-in">
+                                <span class="ladda-label">提交信息</span>
                             </button>
                         </div>
                     </div>
@@ -235,12 +235,12 @@
         </div>
         <strong>Powered by <a href="#">ITcathyh</a> </strong>
     </footer>
-</div><!-- /.content-wrapper -->
-
-<script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+</div>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/pair.js"></script>
+<script type="text/javascript" src="js/spin.min.js"></script>
+<script type="text/javascript" src="js/ladda.min.js"></script>
 </body>
 </html>

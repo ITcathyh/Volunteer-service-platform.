@@ -29,7 +29,7 @@
 <div class="wrapper">
 
     <header class="main-header">
-        <a href="/admin" class="logo">ITcat</a>
+        <a class="logo"><%=Variable.logo%></a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->

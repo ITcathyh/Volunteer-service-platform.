@@ -49,9 +49,11 @@ function addselfpair(name, studentid, qq, email, phone, anothername, anotherstud
         url: "/checkaddbreuser",
         dataType: "json",
         error: function (data) {
+            la.stop();
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
+            la.stop();
             if (response == "error") {
                 showerror("提交失败，请稍后重试");
             } else if (response == "notfound") {
@@ -82,9 +84,11 @@ function addselfpair1(name, studentid, qq, email, phone, anothername, anotherstu
         url: "/checkaddbreuser",
         dataType: "json",
         error: function (data) {
+            la.stop();
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
+            la.stop();
             if (response == "error") {
                 showerror("提交失败，请稍后重试");
                 return false;
@@ -117,9 +121,11 @@ function addsystempair(name, studentid, qq, email, phone) {
         url: "/checkaddbreuser",
         dataType: "json",
         error: function (data) {
+            la.stop();
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
+            la.stop();
             if (response == "error") {
                 showerror("提交失败，请稍后重试");
                 return false;
@@ -148,6 +154,7 @@ $(document).on("click", "#submitpair", function (e) {
 
     if (check(name, studentid, qq, email, phone)) {
         if (type == 1) {
+            la.start();
             addsystempair(name, studentid, qq, email, phone);
         } else {
             var anothername = $("#anothername").val();
@@ -160,6 +167,7 @@ $(document).on("click", "#submitpair", function (e) {
                 if (anotherstudentid == studentid || anotherqq == qq || anotheremail == email || anotherphone == phone) {
                     showerror("请输入匹配人正确的信息");
                 } else {
+                    la.start();
                     if (type == 2) {
                         addselfpair(name, studentid, qq, email, phone, anothername, anotherstudentid, anotherqq, anotheremail, anotherphone);
                     } else {
@@ -172,7 +180,7 @@ $(document).on("click", "#submitpair", function (e) {
 });
 
 /* apply teacher begin */
-function addteacher(name, studentid, qq, email, skill, phone) {
+function addteacher(name, studentid, qq, email, skill, phone,la) {
     $.ajax({
         data: "name=" + name + "&studentid=" + studentid +
         "&qq=" + qq + "&email=" + email + "&phone=" + phone + "&selfsex=" + $("#selfsex").val() +
@@ -181,9 +189,12 @@ function addteacher(name, studentid, qq, email, skill, phone) {
         url: "/checkaddteacher",
         dataType: "json",
         error: function (data) {
+            la.stop();
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
+            la.stop();
+
             if (response == "error") {
                 showerror("提交失败，请稍后重试");
                 return false;
@@ -212,7 +223,10 @@ $(document).on("click", "#submitaddteacher", function (e) {
         if (skill.length <= 1 || skill.length >= 11) {
             showerror("请输入擅长领域(10字符内)");
         } else {
-            addteacher(name, studentid, qq, email, skill, phone);
+            var la = Ladda.create(document.querySelector("#submitaddteacher"));
+            la.start();
+
+            addteacher(name, studentid, qq, email, skill, phone,la);
         }
     }
 });
@@ -471,7 +485,7 @@ $(document).on("click", "#donwloadauthdata", function (e) {
 
 function submitinfo(bremaxnum, la) {
     $.ajax({
-        data: "bremaxnum=" + bremaxnum + "&title=" + $("#title").val(),
+        data: "bremaxnum=" + bremaxnum + "&title=" + $("#title").val() + "&logo=" + $("#logo").val(),
         type: "post",
         url: "/adminalterinfo",
         dataType: "json",
