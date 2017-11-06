@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cardsystem:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="pairsystem.war">
+      <element id="artifact" artifact-name="cardsystem:war exploded" />
+    </root>
+  </artifact>
+</component>
