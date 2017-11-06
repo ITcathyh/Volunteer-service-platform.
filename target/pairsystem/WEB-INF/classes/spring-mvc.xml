@@ -40,6 +40,20 @@
             <mvc:mapping path="/admin**"/>
             <bean class="hyh.interceptor.AdminInterceptor"/>
         </mvc:interceptor>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/assist"/>
+            <mvc:mapping path="/applyteacher"/>
+            <mvc:mapping path="/checkadd**"/>
+            <mvc:mapping path="/self-studying"/>
+            <mvc:mapping path="/teacher"/>
+            <mvc:mapping path="/authenticate"/>
+            <mvc:mapping path="/breakfast"/>
+            <mvc:mapping path="/applyteacher"/>
+            <mvc:mapping path="/applyteacher"/>
+            <mvc:mapping path="/applyteacher"/>
+            <bean class="hyh.interceptor.TimeLimitInterceptor" />
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <bean id="mappingJacksonHttpMessageConverter"

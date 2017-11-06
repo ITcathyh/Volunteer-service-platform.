@@ -55,7 +55,7 @@ public class AssistController {
         return "applyteacher";
     }
 
-    @RequestMapping("checkaddteacher")
+    @RequestMapping("/checkaddteacher")
     @ResponseBody
     public String checkAddTeacher(HttpServletRequest request) {
         if (!Ip.checkIp(teacherservice.getCountByIp(Ip.getIp(request)))) {
@@ -117,7 +117,7 @@ public class AssistController {
         return "self-studying";
     }
 
-    @RequestMapping("checkaddstudying")
+    @RequestMapping("/checkaddstudying")
     @ResponseBody
     public String checkAddStudying(HttpServletRequest request) {
         if (!Ip.checkIp(userservice.getCountByIpAndType(2, Ip.getIp(request)))) {
