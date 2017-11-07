@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class BreakfastController {
@@ -37,8 +38,13 @@ public class BreakfastController {
 
     @RequestMapping("/checkaddbreuser")
     @ResponseBody
-    public String checkAddBreUser(HttpServletRequest request) {
-        if (userservice.getCountByType(1) >= Variable.bremaxnum) {
+    public String checkAddBreUser(HttpServletRequest request, HttpSession session) {
+        String token = request.getHeader("requesttoken");
+        Object sessiontoke = session.getAttribute("csrftoken");
+
+        if (token == null || sessiontoke == null || !sessiontoke.toString().equals(token)) {
+            return "error";
+        } else if (userservice.getCountByType(1) >= Variable.bremaxnum) {
             return "full";
         } else if (!Ip.checkIp(userservice.getCountByIpAndType(1, Ip.getIp(request)))) {
             return "ipfull";

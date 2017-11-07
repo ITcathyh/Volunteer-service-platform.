@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Collections;
 import java.util.List;
 
@@ -57,8 +58,13 @@ public class AssistController {
 
     @RequestMapping("/checkaddteacher")
     @ResponseBody
-    public String checkAddTeacher(HttpServletRequest request) {
-        if (!Ip.checkIp(teacherservice.getCountByIp(Ip.getIp(request)))) {
+    public String checkAddTeacher(HttpServletRequest request, HttpSession session) {
+        String token = request.getHeader("requesttoken");
+        Object sessiontoke = session.getAttribute("csrftoken");
+
+        if (token == null || sessiontoke == null || !sessiontoke.toString().equals(token)) {
+            return "error";
+        } else if (!Ip.checkIp(teacherservice.getCountByIp(Ip.getIp(request)))) {
             return "ipfull";
         }
 
@@ -111,8 +117,13 @@ public class AssistController {
 
     @RequestMapping("/checkaddstudying")
     @ResponseBody
-    public String checkAddStudying(HttpServletRequest request) {
-        if (!Ip.checkIp(userservice.getCountByIpAndType(2, Ip.getIp(request)))) {
+    public String checkAddStudying(HttpServletRequest request, HttpSession session) {
+        String token = request.getHeader("requesttoken");
+        Object sessiontoke = session.getAttribute("csrftoken");
+
+        if (token == null || sessiontoke == null || !sessiontoke.toString().equals(token)) {
+            return "error";
+        } else if (!Ip.checkIp(userservice.getCountByIpAndType(2, Ip.getIp(request)))) {
             return "ipfull";
         }
 
@@ -165,8 +176,13 @@ public class AssistController {
 
     @RequestMapping("/checkaddstudent")
     @ResponseBody
-    public String checkAddStudent(HttpServletRequest request) {
-        if (!Ip.checkIp(studentservice.getCountByIp(Ip.getIp(request)))) {
+    public String checkAddStudent(HttpServletRequest request, HttpSession session) {
+        String token = request.getHeader("requesttoken");
+        Object sessiontoke = session.getAttribute("csrftoken");
+
+        if (token == null || sessiontoke == null || !sessiontoke.toString().equals(token)) {
+            return "error";
+        } else if (!Ip.checkIp(studentservice.getCountByIp(Ip.getIp(request)))) {
             return "ipfull";
         }
 

@@ -3,18 +3,21 @@ var type = 1;
 function showsuccess() {
     $("#msgerror").hide();
     $("#msgsuccess").show();
+    $('html,body').animate({scrollTop:0},'slow');
 }
 
 function showsuccess1(msgtext) {
     $("#ss-msg-success-p").text(msgtext);
     $("#msgerror").hide();
     $("#msgsuccess").show();
+    $('html,body').animate({scrollTop:0},'slow');
 }
 
 function showerror(msgtext) {
     $("#msg-error-p").text(msgtext);
     $("#msgerror").show();
     $("#msgsuccess").hide();
+    $('html,body').animate({scrollTop:0},'slow');
 }
 
 function check(name, studentid, qq, email, phone) {
@@ -46,16 +49,15 @@ function addselfpair(name, studentid, qq, email, phone, anothername, anotherstud
         "&anotherstudentid=" + anotherstudentid + "&anotherqq=" + anotherqq +
         "&anotheremail=" + anotheremail + "&anotherphone=" + anotherphone + "&type=2&id=" + breurl,
         type: "post",
+        headers: headers,
         url: "/checkaddbreuser",
         dataType: "json",
         error: function (data) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
 
             if (response == "error") {
                 showerror("提交失败，请稍后重试");
@@ -69,7 +71,6 @@ function addselfpair(name, studentid, qq, email, phone, anothername, anotherstud
                 showerror("提交失败，您的IP申请本次活动已超过次数，若非本人操作，请联系活动负责人");
             } else {
                 showsuccess();
-                return true;
             }
         }
     });
@@ -84,34 +85,28 @@ function addselfpair1(name, studentid, qq, email, phone, anothername, anotherstu
         "&college=" + $("#college").val() + "&time=" + $("#time").val() +
         "&selfcollege=" + $("#selfcollege").val() + "&sex=" + $("#sex").val() + "&type=3&id=" + breurl,
         type: "post",
+        headers: headers,
         url: "/checkaddbreuser",
         dataType: "json",
         error: function (data) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
 
             if (response == "error") {
                 showerror("提交失败，请稍后重试");
-                return false;
             } else if (response == "notfound") {
                 showerror("提交失败，请确认需要匹配的人的个人信息");
-                return false;
             } else if (response == "exist") {
                 showerror("提交失败，个人信息已存在。若非本人报名，请联系活动负责人");
-                return false;
             } else if (response == "full") {
                 showerror("提交失败，本次活动人数已满，请明天再报名吧~");
-                return false;
             } else if (response == "ipfull") {
                 showerror("提交失败，您的IP申请本次活动已超过次数，若非本人操作，请联系活动负责人");
             } else {
                 showsuccess();
-                return true;
             }
         }
     });
@@ -124,31 +119,26 @@ function addsystempair(name, studentid, qq, email, phone) {
         "&selfsex=" + $("#selfsex").val() + "&time=" + $("#time").val() +
         "&selfcollege=" + $("#selfcollege").val() + "&sex=" + $("#sex").val() + "&type=1&id=" + breurl,
         type: "post",
+        headers: headers,
         url: "/checkaddbreuser",
         dataType: "json",
         error: function (data) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
 
             if (response == "error") {
                 showerror("提交失败，请稍后重试");
-                return false;
             } else if (response == "exist") {
                 showerror("提交失败，个人信息已存在。若非本人报名，请联系活动负责人");
-                return false;
             } else if (response == "full") {
                 showerror("提交失败，本次活动人数已满，请明天再报名吧~");
-                return false;
             } else if (response == "ipfull") {
                 showerror("提交失败，您的IP申请本次活动已超过次数，若非本人操作，请联系活动负责人");
             } else {
                 showsuccess();
-                return true;
             }
         }
     });
@@ -174,7 +164,6 @@ $(document).on("click", "#submitpair", function (e) {
 
             if (check(name, anotherstudentid, anotherqq, email, anotherphone)) {
                 if (anotherstudentid == studentid || anotherqq == qq || anotheremail == email || anotherphone == phone) {
-                    $('html,body').animate({scrollTop:0},'slow');
                     showerror("请输入匹配人正确的信息");
                 } else {
                     la.start();
@@ -196,28 +185,24 @@ function addteacher(name, studentid, qq, email, skill, phone,la) {
         "&qq=" + qq + "&email=" + email + "&phone=" + phone + "&selfsex=" + $("#selfsex").val() +
         "&skill=" + skill + "&college=" + $("#selfcollege").val(),
         type: "post",
+        headers: headers,
         url: "/checkaddteacher",
         dataType: "json",
         error: function (data) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
 
             if (response == "error") {
                 showerror("提交失败，请稍后重试");
-                return false;
             } else if (response == "exist") {
                 showerror("提交失败，个人信息已存在。若非本人报名，请联系活动负责人");
-                return false;
             } else if (response == "ipfull") {
                 showerror("提交失败，您的IP申请本次活动已超过次数，若非本人操作，请联系活动负责人");
             } else {
                 showsuccess();
-                return true;
             }
         }
     });
@@ -253,30 +238,26 @@ function addstudying(name, studentid, qq, email, phone,la) {
         "&selfsex=" + $("#selfsex").val() + "&time=" + $("#time").val() +
         "&selfcollege=" + $("#selfcollege").val() + "&sex=" + $("#sex").val(),
         type: "post",
+        headers: headers,
         url: "/checkaddstudying",
         dataType: "json",
         error: function (data) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
 
             if (response == "error") {
                 showerror("提交失败，请稍后重试");
-                return false;
             } else if (response == "exist") {
                 showerror("提交失败，个人信息已存在。若非本人报名，请联系活动负责人");
-                return false;
             } else if (response == "ipfull") {
                 showerror("提交失败，您的IP申请本次活动已超过次数，若非本人操作，请联系活动负责人");
             } else if (response == "ipfull") {
                 showerror("提交失败，您的IP申请本次活动已超过次数，若非本人操作，请联系活动负责人");
             } else {
                 showsuccess();
-                return true;
             }
         }
     });
@@ -306,16 +287,15 @@ function addstudent(name, studentid, qq, email, college, phone, la) {
         "&qq=" + qq + "&email=" + email + "&phone=" + phone + "&college=" + college +
         "&pairid=" + $("#teacherstudentid").val(),
         type: "post",
+        headers: headers,
         url: "/checkaddstudent",
         dataType: "json",
         error: function (data) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
 
             if (response == "error") {
                 showerror("提交失败，请稍后重试");
@@ -344,10 +324,8 @@ $(document).on("click", "#submitaddstudent", function (e) {
 
     if (check(name, studentid, qq, email, phone)) {
         if (college != $("#teachercollege").val()) {
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("目前只支持在同学院间进行辅学");
         } else if (studentid == $("#teacherstudentid")) {
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("请输入正确的学号");
         } else {
             var la = Ladda.create(document.querySelector("#submitaddstudent"));
@@ -370,7 +348,7 @@ $(document).on("click", "#changebreurl", function (e) {
         },
         success: function (response) {
             if (response == "error") {
-                alert("出现异常，请稍后重试");
+                showerror("出现异常，请稍后重试");
             } else {
                 $("#urlvalue").text(response);
             }
@@ -385,12 +363,10 @@ function beginpair(la) {
         dataType: "json",
         error: function (data) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("配对失败，请查看错误日志");
         },
         success: function (response) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
 
             if (response == -1) {
                 showerror("配对失败，请查看错误日志");
@@ -425,12 +401,10 @@ function sendpairinfo(la) {
         dataType: "json",
         error: function (data) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
 
             if (response == "error") {
                 showerror("暂无需要发送邮件的用户");
@@ -467,10 +441,8 @@ $(document).on("click", "#donwloadexcel", function (e) {
 
             if (response == "error") {
                 showerror("生成excel失败");
-                return false;
             } else {
                 window.location.href = "/admindownload?type=userinfoexcel&filename=userinfo.zip";
-                return true;
             }
         }
     });
@@ -493,10 +465,8 @@ $(document).on("click", "#donwloadauthdata", function (e) {
 
             if (response == "error") {
                 showerror("生成压缩包失败,可能尚未有用户上传资料");
-                return false;
             } else {
                 window.location.href = "/admindownload?type=authdatazip&filename=authdata.zip";
-                return true;
             }
         }
     });
@@ -510,19 +480,15 @@ function submitinfo(bremaxnum, la) {
         dataType: "json",
         error: function (data) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
             la.stop();
-            $('html,body').animate({scrollTop:0},'slow');
 
             if (response == "error") {
                 showerror("修改失败");
-                return false;
             } else {
                 showsuccess();
-                return true;
             }
         }
     });
@@ -537,7 +503,6 @@ $(document).on("click", "#submitinfo", function (e) {
 
         submitinfo(bremaxnum, la);
     } else {
-        $('html,body').animate({scrollTop:0},'slow');
         showerror("请输入正确的数量");
     }
 })
@@ -559,18 +524,13 @@ function updateuser(name, studentid, qq, email, phone, time) {
         url: "/admincheckupdateuser",
         dataType: "json",
         error: function (data) {
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
-            $('html,body').animate({scrollTop:0},'slow');
-
             if (response == "error") {
                 showerror("修改失败，请稍后重试");
-                return false;
             } else {
                 showsuccess();
-                return true;
             }
         }
     });
@@ -601,18 +561,14 @@ function updateteacher(name, studentid, qq, email, skill, phone) {
         url: "/admincheckupdateassist",
         dataType: "json",
         error: function (data) {
-            $('html,body').animate({scrollTop:0},'slow');
+
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
-            $('html,body').animate({scrollTop:0},'slow');
-
             if (response == "error") {
                 showerror("修改失败，请稍后重试");
-                return false;
             } else {
                 showsuccess();
-                return true;
             }
         }
     });
@@ -627,7 +583,6 @@ $(document).on("click", "#updateassist", function (e) {
 
     if (check(name, studentid, qq, email, phone)) {
         if (skill.length <= 1 || skill.length >= 11) {
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("请输入擅长领域(2-10字符)");
         } else {
             updateteacher(name, studentid, qq, email, skill, phone);
@@ -642,21 +597,16 @@ function checkdelete(genre, studentid) {
         url: "/admincheckdelete",
         dataType: "json",
         error: function (data) {
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
-            $('html,body').animate({scrollTop:0},'slow');
-
             if (response == "error") {
                 showerror("删除失败，请稍后重试");
-                return false;
             } else {
                 showsuccess();
                 setTimeout(function () {
                     window.location.href = "/adminqueryuser";
                 }, 1000);
-                return true;
             }
         }
     });
@@ -728,11 +678,9 @@ $("#submitauthentication").click(function () {
     var content = $("#content").val();
 
     if (!new RegExp("^201[0-9]{5,5}$", "").test($("#studentid").val())) {
-        $('html,body').animate({scrollTop:0},'slow');
         showerror("请填写正确的学号");
         return false;
     } else if (content.length < 1 || content.length > 150) {
-        $('html,body').animate({scrollTop:0},'slow');
         showerror("请填写不多于150字的辅学内容");
         return false;
     }
@@ -746,8 +694,6 @@ var options = {
     url: "/uploadfile",
     dataType: 'json',
     success: function (response) {
-        $('html,body').animate({scrollTop:0},'slow');
-
         if (response == "error") {
             showerror("出现异常，请稍候重试");
         } else if (response == "notenough") {
@@ -761,7 +707,6 @@ var options = {
             showsuccess1("提交成功，请注意提醒对方也要来认证喔");
         }
     }, error: function (data) {
-        $('html,body').animate({scrollTop:0},'slow');
         showerror("出现异常，请稍候重试。（注意需上传至少三张照片）");
     }
 };
@@ -795,12 +740,9 @@ function updateemail(add1, add2, add3, pwd1, pwd2, pwd3, host1, host2, host3) {
         url: "/admincheckupdateemail",
         dataType: "json",
         error: function (data) {
-            $('html,body').animate({scrollTop:0},'slow');
             showerror("出现异常，请稍后重试");
         },
         success: function (response) {
-            $('html,body').animate({scrollTop:0},'slow');
-
             if (response == "error") {
                 showerror("修改失败，请稍后重试");
             } else {

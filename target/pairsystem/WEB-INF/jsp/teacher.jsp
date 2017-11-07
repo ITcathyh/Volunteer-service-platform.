@@ -275,7 +275,7 @@
         <strong>Powered by <a href="#">ITcathyh</a> </strong>
     </footer>
 </div><!-- /.content-wrapper -->
-
+<input type="hidden" name="CSRFToken" id = "token" value="${csrftoken}" />
 <script type="text/javascript" src="js/jquery-1.3.2.js"></script>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -284,6 +284,9 @@
 <script type="text/javascript" src="js/spin.min.js"></script>
 <script type="text/javascript" src="js/ladda.min.js"></script>
 <script type="text/javascript">
+    var headers = {};
+    headers['requesttoken'] = $("#token").val();
+
     $(document).on("blur", "#teachername", function (e) {
         $("#teachername").val("${teacher.name}");
     });

@@ -6,4 +6,5 @@ public class Variable {
     public static String brerurl;
     public static int bremaxnum = 100;
     public static int errornum = 0;
+    public static final int MAX_PAGE_SIZE = 12;
 }

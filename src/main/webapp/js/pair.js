@@ -49,6 +49,7 @@ function addselfpair(name, studentid, qq, email, phone, anothername, anotherstud
         "&anotherstudentid=" + anotherstudentid + "&anotherqq=" + anotherqq +
         "&anotheremail=" + anotheremail + "&anotherphone=" + anotherphone + "&type=2&id=" + breurl,
         type: "post",
+        headers: headers,
         url: "/checkaddbreuser",
         dataType: "json",
         error: function (data) {
@@ -84,6 +85,7 @@ function addselfpair1(name, studentid, qq, email, phone, anothername, anotherstu
         "&college=" + $("#college").val() + "&time=" + $("#time").val() +
         "&selfcollege=" + $("#selfcollege").val() + "&sex=" + $("#sex").val() + "&type=3&id=" + breurl,
         type: "post",
+        headers: headers,
         url: "/checkaddbreuser",
         dataType: "json",
         error: function (data) {
@@ -117,6 +119,7 @@ function addsystempair(name, studentid, qq, email, phone) {
         "&selfsex=" + $("#selfsex").val() + "&time=" + $("#time").val() +
         "&selfcollege=" + $("#selfcollege").val() + "&sex=" + $("#sex").val() + "&type=1&id=" + breurl,
         type: "post",
+        headers: headers,
         url: "/checkaddbreuser",
         dataType: "json",
         error: function (data) {
@@ -182,6 +185,7 @@ function addteacher(name, studentid, qq, email, skill, phone,la) {
         "&qq=" + qq + "&email=" + email + "&phone=" + phone + "&selfsex=" + $("#selfsex").val() +
         "&skill=" + skill + "&college=" + $("#selfcollege").val(),
         type: "post",
+        headers: headers,
         url: "/checkaddteacher",
         dataType: "json",
         error: function (data) {
@@ -234,6 +238,7 @@ function addstudying(name, studentid, qq, email, phone,la) {
         "&selfsex=" + $("#selfsex").val() + "&time=" + $("#time").val() +
         "&selfcollege=" + $("#selfcollege").val() + "&sex=" + $("#sex").val(),
         type: "post",
+        headers: headers,
         url: "/checkaddstudying",
         dataType: "json",
         error: function (data) {
@@ -282,6 +287,7 @@ function addstudent(name, studentid, qq, email, college, phone, la) {
         "&qq=" + qq + "&email=" + email + "&phone=" + phone + "&college=" + college +
         "&pairid=" + $("#teacherstudentid").val(),
         type: "post",
+        headers: headers,
         url: "/checkaddstudent",
         dataType: "json",
         error: function (data) {

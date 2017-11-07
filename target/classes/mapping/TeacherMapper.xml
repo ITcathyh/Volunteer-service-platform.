@@ -32,6 +32,10 @@
     where studentid = #{studentid}
   </select>
 
+    <select id="getLimit" resultMap="BaseResultMap">
+        select * from teacher limit #{pos},#{count}
+    </select>
+
     <select id="getCount" resultType="Integer">
     select count(*) from teacher
   </select>

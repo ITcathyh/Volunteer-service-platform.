@@ -215,7 +215,6 @@
         <strong>Powered by <a href="#">ITcathyh</a> </strong>
     </footer>
 </div><!-- /.content-wrapper -->
-
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.form.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>

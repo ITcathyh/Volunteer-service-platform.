@@ -24,6 +24,21 @@ public class TeacherService {
         return dao.getByStudentid(studentid);
     }
 
+    public List<Teacher> getLimit(int pos, int count) {
+        log.info("限量获取辅学者");
+        return dao.getLimit(pos, count);
+    }
+
+    public List<Teacher> getAll() {
+        log.info("获取所有辅学者");
+        return dao.getAll();
+    }
+
+    public List<Teacher> getAllFree() {
+        log.info("获取所有空闲辅学者");
+        return dao.getAllFree();
+    }
+
     public int getCount() {
         log.info("获取辅学者数量");
 
@@ -36,16 +51,6 @@ public class TeacherService {
 
         Integer result = dao.getCountByIp(ip);
         return result == null ? 0 : result;
-    }
-
-    public List<Teacher> getAll() {
-        log.info("获取所有辅学者");
-        return dao.getAll();
-    }
-
-    public List<Teacher> getAllFree() {
-        log.info("获取所有空闲辅学者");
-        return dao.getAllFree();
     }
 
     public int deleteAll() {

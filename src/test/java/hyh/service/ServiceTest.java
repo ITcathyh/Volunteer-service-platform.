@@ -51,9 +51,8 @@ public class ServiceTest extends AbstractTransactionalTestNGSpringContextTests {
 
         assertTrue(teacherservice.update(teacher) == 1);
         assertNotNull(teacherservice.getByStudentid(20114411));*/
-        email.sendEmail(new AppEmail("417484830@qq.com","123","123","123",123),"辅学");
 
-       // Pair.sendPairEmail(email, userservice, 1);
+        System.out.println(teacherservice.getLimit(0,2));
 
     }
 

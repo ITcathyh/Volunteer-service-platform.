@@ -236,11 +236,16 @@
         <strong>Powered by <a href="#">ITcathyh</a> </strong>
     </footer>
 </div>
+<input type="hidden" name="CSRFToken" id = "token" value="${csrftoken}" />
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/pair.js"></script>
 <script type="text/javascript" src="js/spin.min.js"></script>
 <script type="text/javascript" src="js/ladda.min.js"></script>
+<script type="text/javascript">
+    var headers = {};
+    headers['requesttoken'] = $("#token").val();
+</script>
 </body>
 </html>

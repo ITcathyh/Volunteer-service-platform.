@@ -11,13 +11,15 @@ public interface TeacherDao {
 
     Teacher getByStudentid(int studentid);
 
-    Integer getCount();
-
-    Integer getCountByIp(String ip);
+    List<Teacher> getLimit(@Param("pos") int pos, @Param("count") int count);
 
     List<Teacher> getAll();
 
     List<Teacher> getAllFree();
+
+    Integer getCount();
+
+    Integer getCountByIp(String ip);
 
     int deleteAll();
 
