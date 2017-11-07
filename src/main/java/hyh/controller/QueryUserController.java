@@ -38,9 +38,6 @@ public class QueryUserController {
     public String getToQueryuser(HttpServletRequest request) {
         String genre = request.getParameter("genre");
         int studentid = 0, nowpage = 0;
-        List<Object> result = new ArrayList<Object>();
-        User temp1, temp2;
-        Teacher teacher;
 
         try {
             studentid = Integer.valueOf(request.getParameter("searchtext"));
@@ -49,50 +46,12 @@ public class QueryUserController {
         }
 
         try {
-            System.out.println(request.getParameter("page"));
             nowpage = Integer.valueOf(request.getParameter("page"));
         } catch (Exception e) {
+            nowpage = 0;
         }
 
-        try {
-            if (genre == null || genre.equals("全部")) {
-                if (studentid != 0) {
-                    temp1 = userservice.getByStudentidAndType(studentid, 2);
-                    temp2 = userservice.getByStudentidAndType(studentid, 1);
-                    teacher = teacherservice.getByStudentid(studentid);
-
-                    UserAction.filter(result, temp1, temp2, teacher);
-                } else {
-                    result.addAll(userservice.getAll());
-                    result.addAll(teacherservice.getAll());
-                }
-            } else if (genre.equals("早餐叫醒")) {
-                if (studentid != 0) {
-                    UserAction.filter(result, userservice.getByStudentidAndType(studentid, 1));
-                } else {
-                    result.addAll(userservice.getByType(1));
-                }
-            } else if (genre.equals("相约自习")) {
-                if (studentid != 0) {
-                    UserAction.filter(result, userservice.getByStudentidAndType(studentid, 2));
-                } else {
-                    result.addAll(userservice.getByType(2));
-                }
-            } else if (genre.equals("辅学")) {
-                if (studentid != 0) {
-                    UserAction.filter(result, teacherservice.getByStudentid(studentid));
-                } else {
-                    result.addAll(teacherservice.getAll());
-                }
-            } else {
-                return "error";
-            }
-        } catch (Exception e) {
-            Variable.errornum++;
-            log.error("DateBase is wrong\n" + e + "\n");
-        }
-
-        request.setAttribute("result", result.size() == 0 ? null : result);
+        request.setAttribute("result", UserAction.getUsers(genre,studentid,log,userservice,teacherservice));
         request.setAttribute("nowpage", nowpage);
 
         return "queryuser";

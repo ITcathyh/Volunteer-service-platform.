@@ -62,21 +62,17 @@ public class AssistController {
             return "ipfull";
         }
 
-        String name, qq, email, skill, college, phone;
+        String skill, college;
         int studentid, selfsex;
         Teacher teacher = new Teacher();
 
         try {
-            name = request.getParameter("name");
-            qq = request.getParameter("qq");
-            phone = request.getParameter("phone");
-            email = request.getParameter("email");
             studentid = Integer.valueOf(request.getParameter("studentid"));
             selfsex = request.getParameter("selfsex").equals("男") ? 1 : 2;
             skill = request.getParameter("skill");
             college = request.getParameter("college");
 
-            if (!UserAction.checkNull(name, qq, email, skill, college, phone)) {
+            if (college == null || skill == null) {
                 return "error";
             }
         } catch (Exception e) {
@@ -85,17 +81,13 @@ public class AssistController {
 
         if (teacherservice.getByStudentid(studentid) != null) {
             return "exist";
+        } else if (!UserAction.setBaseUser(teacher, studentid, request)) {
+            return "error";
         }
 
         teacher.setCollege(college);
-        teacher.setName(name);
-        teacher.setEmail(email);
-        teacher.setQq(qq);
         teacher.setSkill(skill);
-        teacher.setStudentid(studentid);
         teacher.setSelfsex(selfsex);
-        teacher.setPhone(phone);
-        teacher.setIp(Ip.getIp(request));
 
         try {
             if (teacherservice.add(teacher) == 1) {
@@ -124,21 +116,12 @@ public class AssistController {
             return "ipfull";
         }
 
-        String name, qq, email, phone;
         int studentid, selfsex;
         User user = new User();
 
         try {
-            name = request.getParameter("name");
-            qq = request.getParameter("qq");
-            phone = request.getParameter("phone");
-            email = request.getParameter("email");
             studentid = Integer.valueOf(request.getParameter("studentid"));
             selfsex = request.getParameter("selfsex").equals("男") ? 1 : 2;
-
-            if (!UserAction.checkNull(name, qq, email, phone)) {
-                return "error";
-            }
         } catch (Exception e) {
             log.error(e);
             return "error";
@@ -146,16 +129,12 @@ public class AssistController {
 
         if (userservice.getByStudentidAndType(studentid, 2) != null) {
             return "exist";
+        } else if (!UserAction.setBaseUser(user, studentid, request)) {
+            return "error";
         }
 
-        user.setName(name);
-        user.setEmail(email);
-        user.setQq(qq);
         user.setSelfsex(selfsex);
-        user.setStudentid(studentid);
         user.setType(2);
-        user.setPhone(phone);
-        user.setIp(Ip.getIp(request));
 
         UserInfo buf = UserAction.getUserInfo(request, studentid, 2);
 
@@ -163,18 +142,7 @@ public class AssistController {
             return "error";
         }
 
-        try {
-            if (userservice.add(user) == 1 && userinfoservice.add(buf) == 1) {
-                return "done";
-            } else {
-                userservice.deleteByStudentidAndType(studentid, 2);
-                return "error";
-            }
-        } catch (Exception e) {
-            log.error(e);
-            userservice.deleteByStudentidAndType(studentid, 2);
-            return "error";
-        }
+        return UserAction.addUser(user, buf, 2, userservice, userinfoservice, log);
     }
 
     @RequestMapping("/teacher")
@@ -203,34 +171,28 @@ public class AssistController {
             return "ipfull";
         }
 
-        String name, qq, email, college, phone;
+        String college;
         int studentid, pairid;
         Student student = new Student();
 
         try {
-            name = request.getParameter("name");
-            qq = request.getParameter("qq");
-            phone = request.getParameter("phone");
-            email = request.getParameter("email");
             studentid = Integer.valueOf(request.getParameter("studentid"));
             pairid = Integer.valueOf(request.getParameter("pairid"));
             college = request.getParameter("college");
 
-            if (!UserAction.checkNull(name, qq, email, college, phone)) {
+            if (college == null) {
                 return "error";
             }
         } catch (Exception e) {
             return "error";
         }
 
+        if (!UserAction.setBaseUser(student, studentid, request)) {
+            return "error";
+        }
+
         student.setCollege(college);
-        student.setName(name);
-        student.setEmail(email);
-        student.setQq(qq);
-        student.setStudentid(studentid);
         student.setPairid(pairid);
-        student.setPhone(phone);
-        student.setIp(Ip.getIp(request));
 
         Teacher teacher = teacherservice.getByStudentidAndStatus(pairid, 0);
 

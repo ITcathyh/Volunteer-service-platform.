@@ -1,5 +1,6 @@
 package hyh.controller;
 
+import hyh.action.FileAction;
 import hyh.entity.BaseUser;
 import hyh.global.Variable;
 import hyh.service.StudentService;
@@ -78,7 +79,7 @@ public class FileController {
             e.printStackTrace();
         }
 
-        String path = Variable.authpath + TimeUtil.getDeaLTime() + "/";
+        String path = FileAction.getAuthDataPath() + TimeUtil.getDeaLTime() + "/";
         String filename;
         File file = new File(path);
 
@@ -116,7 +117,7 @@ public class FileController {
     @ResponseBody
     public String makeExcel(HttpServletRequest request) {
         ArrayList<BaseUser> list = new ArrayList<BaseUser>();
-        String path = Variable.excelpath + TimeUtil.getDeaLTime() + "/";
+        String path = FileAction.getExcelPath() + TimeUtil.getDeaLTime() + "/";
 
         list.addAll(userservice.getByType(1));
 
@@ -127,7 +128,7 @@ public class FileController {
             list.addAll(studentservice.getAll());
 
             if (Excel.write(path, "相约自习", list)) {
-                if (Zip.fileToZip(path, Variable.excelpath, "userinfo")) {
+                if (Zip.fileToZip(path, FileAction.getExcelPath(), "userinfo")) {
                     return "done";
                 } else {
                     return "error";
@@ -143,9 +144,9 @@ public class FileController {
     @RequestMapping("/adminmakeauthdatazip")
     @ResponseBody
     public String makeAuthDataZip() {
-        String path = Variable.authpath + TimeUtil.getDeaLTime() + "/";
+        String path = FileAction.getAuthDataPath() + TimeUtil.getDeaLTime() + "/";
 
-        if (Zip.fileToZip(path, Variable.authpath, "authdata")) {
+        if (Zip.fileToZip(path, FileAction.getAuthDataPath(), "authdata")) {
             return "done";
         } else {
             return "error";
@@ -156,15 +157,9 @@ public class FileController {
     public String download(@RequestParam("type") String type, @RequestParam("filename") String filename,
                            HttpServletResponse response) {
         try {
-            String path;
+            String path = FileAction.getPath(type);
 
-            if (type.equals("userinfoexcel")) {
-                path = Variable.excelpath;
-            } else if (type.equals("authdatazip")) {
-                path = Variable.authpath;
-            } else if (type.equals("errormsg")) {
-                path = "";
-            } else {
+            if (path == null){
                 return "error";
             }
 

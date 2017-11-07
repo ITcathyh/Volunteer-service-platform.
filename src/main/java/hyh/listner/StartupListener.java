@@ -11,7 +11,5 @@ import org.springframework.stereotype.Component;
 public class StartupListener implements ApplicationContextAware {
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         Variable.brerurl = GetRandomString.getRandomString(10);
-        Variable.excelpath = "pair/excel/";
-        Variable.authpath = "pair/auth/";
     }
 }

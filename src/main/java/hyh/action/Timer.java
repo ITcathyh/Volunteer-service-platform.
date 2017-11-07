@@ -35,7 +35,7 @@ public class Timer {
     public void clear() {
         Variable.brerurl = GetRandomString.getRandomString(10);
         ArrayList<BaseUser> list = new ArrayList<BaseUser>();
-        String path = Variable.excelpath + TimeUtil.getDeaLTime() + "\\";
+        String path = FileAction.getExcelPath() + TimeUtil.getDeaLTime() + "\\";
 
         list.addAll(userservice.getByType(1));
 
@@ -60,7 +60,7 @@ public class Timer {
         }
     }
 
-    @Scheduled(cron = "0 0 10,14,18,22 * * ?")
+    @Scheduled(cron = "0 0 8,13,17,20 * * ?")
     public void pairstu() {
         Pair.pairStu(userservice, userinfoservice, 2);
         Pair.sendPairEmail(email, userservice, 2);

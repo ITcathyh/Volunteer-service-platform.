@@ -11,7 +11,7 @@ abstract public class BaseUser {
 
     protected String email;
 
-    private String ip;
+    protected String ip;
 
     protected int pairid;
 
