@@ -125,7 +125,7 @@ public class AdminController {
     @RequestMapping("/admincheckpairbre")
     @ResponseBody
     public int checkPairBre() {
-        return Pair.pairStu(userservice, userinfoservice, 1);
+        return Pair.pair(userservice, userinfoservice, 1);
     }
 
     @RequestMapping("/adminsendbrepairinfo")

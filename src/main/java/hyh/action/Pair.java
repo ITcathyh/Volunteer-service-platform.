@@ -14,7 +14,7 @@ import java.util.*;
 public class Pair {
     private static Logger log = Logger.getLogger("hyh.action.Pair");
 
-    synchronized public static int pairStu(UserService userservice,
+    synchronized public static int pair(UserService userservice,
                                            UserInfoService userinfoservice, int type) {
         List<User> users = userservice.getByTypeAndPairid(type, 0);
 

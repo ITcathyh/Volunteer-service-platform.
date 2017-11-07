@@ -96,7 +96,7 @@ public class AssistController {
                 teacherservice.deleteByStudentid(studentid);
             }
         } catch (Exception e) {
-            log.error(e);
+            log.error(e + "\n");
             teacherservice.deleteByStudentid(studentid);
             return "error";
         }
@@ -123,7 +123,6 @@ public class AssistController {
             studentid = Integer.valueOf(request.getParameter("studentid"));
             selfsex = request.getParameter("selfsex").equals("男") ? 1 : 2;
         } catch (Exception e) {
-            log.error(e);
             return "error";
         }
 
@@ -223,7 +222,7 @@ public class AssistController {
                 studentservice.deleteByStudentid(studentid);
             }
         } catch (Exception e) {
-            log.error(e);
+            log.error(e + "\n");
             studentservice.deleteByStudentid(studentid);
             return "error";
         }

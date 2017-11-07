@@ -90,7 +90,7 @@ public class ServiceTest extends AbstractTransactionalTestNGSpringContextTests {
 
         long startMili = System.currentTimeMillis();
 
-        System.out.println(Pair.pairStu(userservice, userinfoservice, 1));
+        System.out.println(Pair.pair(userservice, userinfoservice, 1));
 
         long endMili = System.currentTimeMillis();
         System.out.println("总耗时为：" + (endMili - startMili) + "毫秒");
