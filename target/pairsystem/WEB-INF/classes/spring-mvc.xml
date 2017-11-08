@@ -49,7 +49,7 @@
             <mvc:mapping path="/teacher"/>
             <mvc:mapping path="/authenticate"/>
             <mvc:mapping path="/breakfast"/>
-            <bean class="hyh.interceptor.TimeLimitInterceptor" />
+            <bean class="hyh.interceptor.TimeLimitInterceptor"/>
         </mvc:interceptor>
 
         <mvc:interceptor>
@@ -57,7 +57,8 @@
             <mvc:mapping path="/self-studying"/>
             <mvc:mapping path="/teacher"/>
             <mvc:mapping path="/breakfast"/>
-            <bean class="hyh.interceptor.CSRFInterceptor" />
+            <mvc:mapping path="/authenticate"/>
+            <bean class="hyh.interceptor.CSRFInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
@@ -96,8 +97,8 @@
 
     <bean id="mailSender2" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="smtp.ym.163.com"/>
-        <property name="username" value="k@certainly.win"/>
-        <property name="password" value="kk28288"/>
+        <property name="username" value=""/>
+        <property name="password" value=""/>
         <property name="port" value="465"/>
         <property name="protocol" value="smtp"/>
         <property name="defaultEncoding" value="UTF-8"/>
@@ -111,27 +112,10 @@
         </property>
     </bean>
 
-   <!-- <bean id="mailSender1" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="smtp.qq.com"/>
-        <property name="username" value="862038234@qq.com"/>
-        <property name="password" value="xbcyemrokekfbbcf"/>
-        <property name="port" value="465"/>
-        <property name="protocol" value="smtp"/>
-        <property name="defaultEncoding" value="UTF-8"/>
-        <property name="javaMailProperties">
-            <props>
-                <prop key="mail.smtp.auth">true</prop>
-                <prop key="mail.smtp.ssl.enable">true</prop>
-                <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
-                <prop key="mail.smtp.timeout">25000</prop>
-            </props>
-        </property>
-    </bean>-->
-
     <bean id="mailSender1" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="smtp.stu.neu.edu.cn"/>
-        <property name="username" value="20165358@stu.neu.edu.cn"/>
-        <property name="password" value="246914"/>
+        <property name="username" value=""/>
+        <property name="password" value=""/>
         <property name="port" value="465"/>
         <property name="protocol" value="smtp"/>
         <property name="defaultEncoding" value="UTF-8"/>
@@ -147,8 +131,8 @@
 
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="smtp.stu.neu.edu.cn"/>
-        <property name="username" value="20165358@stu.neu.edu.cn"/>
-        <property name="password" value="246914"/>
+        <property name="username" value=""/>
+        <property name="password" value=""/>
         <property name="port" value="465"/>
         <property name="protocol" value="smtp"/>
         <property name="defaultEncoding" value="UTF-8"/>
@@ -161,19 +145,4 @@
             </props>
         </property>
     </bean>
-
-    <!--<bean id="mailSender2" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="smtp.163.com"/>
-        <property name="username" value=""/>
-        <property name="password" value=""/>
-        <property name="port" value="25"/>
-        <property name="protocol" value="smtp"></property>
-        <property name="defaultEncoding" value="UTF-8"></property>
-        <property name="javaMailProperties">
-            <props>
-                <prop key="mail.smtp.auth">true</prop>
-                <prop key="mail.smtp.timeout">25000</prop>
-            </props>
-        </property>
-    </bean>-->
 </beans>

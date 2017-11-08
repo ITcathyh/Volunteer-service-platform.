@@ -49,7 +49,7 @@
             <mvc:mapping path="/teacher"/>
             <mvc:mapping path="/authenticate"/>
             <mvc:mapping path="/breakfast"/>
-            <bean class="hyh.interceptor.TimeLimitInterceptor" />
+            <bean class="hyh.interceptor.TimeLimitInterceptor"/>
         </mvc:interceptor>
 
         <mvc:interceptor>
@@ -57,7 +57,8 @@
             <mvc:mapping path="/self-studying"/>
             <mvc:mapping path="/teacher"/>
             <mvc:mapping path="/breakfast"/>
-            <bean class="hyh.interceptor.CSRFInterceptor" />
+            <mvc:mapping path="/authenticate"/>
+            <bean class="hyh.interceptor.CSRFInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 

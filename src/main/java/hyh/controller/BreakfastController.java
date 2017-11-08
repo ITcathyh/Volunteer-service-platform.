@@ -52,7 +52,7 @@ public class BreakfastController {
 
         String name, qq, email, id, phone;
         int studentid, selfsex, type;
-        User buser = new User();
+        User user = new User();
 
         try {
             studentid = Integer.valueOf(request.getParameter("studentid"));
@@ -72,13 +72,13 @@ public class BreakfastController {
             return "exist";
         } else if (!id.equals(Variable.brerurl)) {
             return "error";
-        } else if (!UserAction.setBaseUser(buser, studentid, request)) {
+        } else if (!UserAction.setBaseUser(user, studentid, request)) {
             return "error";
         }
 
-        buser.setPairtype(type);
-        buser.setSelfsex(selfsex);
-        buser.setType(1);
+        user.setPairtype(type);
+        user.setSelfsex(selfsex);
+        user.setType(1);
 
         UserInfo buf = UserAction.getUserInfo(request, studentid, 1);
 
@@ -87,7 +87,7 @@ public class BreakfastController {
                 return "error";
             }
 
-            return UserAction.addUser(buser, buf, 1, userservice, userinfoservice, log);
+            return UserAction.addUser(user, buf, 1, userservice, userinfoservice, log);
         } else {
             try {
                 name = request.getParameter("anothername");
@@ -100,6 +100,7 @@ public class BreakfastController {
                     return "error";
                 }
             } catch (Exception e) {
+                Variable.errornum++;
                 log.error(e + "\n");
                 return "error";
             }
@@ -109,9 +110,9 @@ public class BreakfastController {
 
             UserAction.setBaseUser(anotherbuser, studentid, name, qq, phone, email, Ip.getIp(request));
             anotherbuser.setPairtype(2);
-            anotherbuser.setPairid(buser.getStudentid());
+            anotherbuser.setPairid(user.getStudentid());
             anotherbuser.setType(1);
-            buser.setPairid(studentid);
+            user.setPairid(studentid);
 
             if (temp != null && !temp.equals(anotherbuser)) {
                 if (type == 2) {
@@ -123,16 +124,17 @@ public class BreakfastController {
                 }
 
                 try {
-                    if (userservice.add(buser) == 1 && userservice.add(anotherbuser) == 1 && userinfoservice.add(buf) == 1) {
+                    if (userservice.add(user) == 1 && userservice.add(anotherbuser) == 1 && userinfoservice.add(buf) == 1) {
                         return "done";
                     } else {
-                        userservice.deleteById(buser.getId());
+                        userservice.deleteById(user.getId());
                         userservice.deleteById(anotherbuser.getId());
                         return "error";
                     }
                 } catch (Exception e) {
-                    log.error(e);
-                    userservice.deleteById(buser.getId());
+                    Variable.errornum++;
+                    log.error(e + "\n");
+                    userservice.deleteById(user.getId());
                     userservice.deleteById(anotherbuser.getId());
                     return "error";
                 }

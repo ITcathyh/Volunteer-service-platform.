@@ -1,5 +1,6 @@
 D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\service\TeacherService.java
 D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\util\Ip.java
+D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\filter\XssHttpServletRequestWrapper.java
 D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\util\Email.java
 D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\action\UserAction.java
 D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\util\Zip.java
@@ -16,6 +17,8 @@ D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\entity\BaseUser.j
 D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\util\TimeUtil.java
 D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\entity\Student.java
 D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\listner\StartupListener.java
+D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\filter\XssFilter.java
+D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\interceptor\CSRFInterceptor.java
 D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\controller\QueryUserController.java
 D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\controller\AssistController.java
 D:\Code\Java\JavaProject\pairsystem - 副本\src\main\java\hyh\controller\BreakfastController.java

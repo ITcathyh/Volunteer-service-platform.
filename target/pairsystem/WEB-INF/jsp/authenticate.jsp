@@ -98,6 +98,8 @@
 
             <form id="myform" enctype="multipart/form-data">
 
+                <input type="hidden" name="token" id = "token" value="${csrftoken}" />
+
                 <div class="row">
                     <!-- left column -->
                     <div class="col-md-6">
@@ -214,7 +216,7 @@
         </div>
         <strong>Powered by <a href="#">ITcathyh</a> </strong>
     </footer>
-</div><!-- /.content-wrapper -->
+</div>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.form.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>

@@ -41,7 +41,6 @@ public class AdminController {
         if (assiturl == null) {
             StringBuffer url = request.getRequestURL();
             String tempContextUrl = url.delete(url.length() - request.getRequestURI().length(), url.length()).append("/").toString();
-            //String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
             assiturl = tempContextUrl + "assist";
             breurl = tempContextUrl + "breakfast?id=";
         }

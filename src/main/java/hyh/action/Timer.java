@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 @Component
 public class Timer {
-    private Logger log = Logger.getLogger(this.getClass());
     @Autowired
     private UserService userservice;
     @Autowired
@@ -37,13 +36,7 @@ public class Timer {
         ArrayList<BaseUser> list = new ArrayList<BaseUser>();
         String path = FileAction.getExcelPath() + TimeUtil.getDeaLTime() + "/";
 
-        list.addAll(userservice.getByType(1));
-        Excel.write(path, "早餐叫醒", list);
-        list.clear();
-        list.addAll(userservice.getByType(2));
-        list.addAll(teacherservice.getAll());
-        list.addAll(studentservice.getAll());
-        Excel.write(path, "相约自习", list);
+        Excel.write(userservice, teacherservice, studentservice, path);
 
         studentservice.deleteAll();
         teacherservice.deleteAll();

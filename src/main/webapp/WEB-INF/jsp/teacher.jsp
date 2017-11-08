@@ -131,15 +131,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">学号</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="teacherstudentid"
-                                               autocomplete="off" value="${teacher.studentid}">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
                                     <label class="col-sm-3 control-label">手机号</label>
 
                                     <div class="col-sm-9">

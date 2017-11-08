@@ -106,6 +106,7 @@ public class UserAction {
                 return "error";
             }
         } catch (Exception e) {
+            Variable.errornum++;
             log.error(e + "\n");
             userservice.deleteByStudentidAndType(user.getStudentid(), type);
             return "error";

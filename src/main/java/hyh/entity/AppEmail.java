@@ -38,15 +38,4 @@ public class AppEmail {
     public String getPhone() {
         return phone;
     }
-
-    @Override
-    public String toString() {
-        return "AppEmail{" +
-                "address='" + address + '\'' +
-                ", name='" + name + '\'' +
-                ", qq='" + qq + '\'' +
-                ", phone='" + phone + '\'' +
-                ", studentid=" + studentid +
-                '}';
-    }
 }

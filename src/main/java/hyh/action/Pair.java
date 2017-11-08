@@ -60,7 +60,6 @@ public class Pair {
             user = stack.pop();
             match = stack.pop();
 
-
             if (update(user, match, match.getStudentid(), user.getStudentid(), userservice)) {
                 users.remove(match);
                 cot++;
@@ -164,11 +163,13 @@ public class Pair {
     }
 
     private static User makeDegree(User user, UserInfo userinfo, List<User> users, UserInfoService userinfoservice, int type) {
-        User match = null;
+        User match = null, temp;
         UserInfo tempinfor;
         int result, max = 0;
+        ListIterator<User> it = users.listIterator();
 
-        for (User temp : users) {
+        while (it.hasNext()){
+            temp = it.next();
             result = 0;
             tempinfor = userinfoservice.getByStudentidAndType(temp.getStudentid(), type);
 
@@ -193,12 +194,12 @@ public class Pair {
                     result += 1;
                 }
 
-                temp.setDegree(result);
-            }
-
-            if (max < result) {
-                max = result;
-                match = temp;
+                if (max < result) {
+                    max = result;
+                    match = temp;
+                }
+            } else {
+                it.remove();
             }
         }
 

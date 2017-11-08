@@ -10,6 +10,7 @@ import hyh.service.UserService;
 import hyh.util.Excel;
 import hyh.util.TimeUtil;
 import hyh.util.Zip;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -35,6 +36,7 @@ import java.util.UUID;
 
 @Controller
 public class FileController {
+    private Logger log = Logger.getLogger(this.getClass());
     @Autowired
     private UserService userservice;
     @Autowired
@@ -48,12 +50,12 @@ public class FileController {
                              HttpServletRequest request, HttpSession session) {
         Object obj = session.getAttribute("uploadtime");
 
-        if (obj == null){
+        if (obj == null) {
             session.setAttribute("uploadtime", 1);
-        }else {
-            int time = (Integer)obj;
+        } else {
+            int time = (Integer) obj;
 
-            if (time >= 2){
+            if (time >= 2) {
                 session.setAttribute("lockupload", 1);
                 session.removeAttribute("uploadtime");
                 return "lockupload";
@@ -65,6 +67,12 @@ public class FileController {
         MultipartHttpServletRequest mRequest = (MultipartHttpServletRequest) request;
         int studentid = 1;
         String content = mRequest.getParameter("content");
+        String token = mRequest.getParameter("token");
+        Object sessiontoke = session.getAttribute("csrftoken");
+
+        if (token == null || sessiontoke == null || !sessiontoke.toString().equals(token)) {
+            return "error";
+        }
 
         try {
             studentid = Integer.valueOf(mRequest.getParameter("studentid"));
@@ -90,7 +98,6 @@ public class FileController {
         try {
             for (int i = 0; i < files.length; i++) {
                 if (!files[i].isEmpty()) {
-
                     filename = studentid + Character.toString((char) ('a' + i)) + ".jpg";
                     file = new File(path + filename);
 
@@ -106,7 +113,7 @@ public class FileController {
             out.write(content);
             out.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e);
             return "error";
         }
 
@@ -119,23 +126,9 @@ public class FileController {
         ArrayList<BaseUser> list = new ArrayList<BaseUser>();
         String path = FileAction.getExcelPath() + TimeUtil.getDeaLTime() + "/";
 
-        list.addAll(userservice.getByType(1));
-
-        if (Excel.write(path, "早餐叫醒", list)) {
-            list.clear();
-            list.addAll(userservice.getByType(2));
-            list.addAll(teacherservice.getAll());
-            list.addAll(studentservice.getAll());
-
-            if (Excel.write(path, "相约自习", list)) {
-                if (Zip.fileToZip(path, FileAction.getExcelPath(), "userinfo")) {
-                    return "done";
-                } else {
-                    return "error";
-                }
-            } else {
-                return "error";
-            }
+        if (Excel.write(userservice, teacherservice, studentservice, path) &&
+                Zip.fileToZip(path, FileAction.getExcelPath(), "userinfo")) {
+            return "done";
         } else {
             return "error";
         }
@@ -159,7 +152,7 @@ public class FileController {
         try {
             String path = FileAction.getPath(type);
 
-            if (path == null){
+            if (path == null) {
                 return "error";
             }
 

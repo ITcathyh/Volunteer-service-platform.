@@ -2,6 +2,7 @@ package hyh.controller;
 
 import hyh.action.UserAction;
 import hyh.entity.*;
+import hyh.global.Variable;
 import hyh.service.StudentService;
 import hyh.service.TeacherService;
 import hyh.service.UserInfoService;
@@ -102,6 +103,7 @@ public class AssistController {
                 teacherservice.deleteByStudentid(studentid);
             }
         } catch (Exception e) {
+            Variable.errornum++;
             log.error(e + "\n");
             teacherservice.deleteByStudentid(studentid);
             return "error";
@@ -238,6 +240,7 @@ public class AssistController {
                 studentservice.deleteByStudentid(studentid);
             }
         } catch (Exception e) {
+            Variable.errornum++;
             log.error(e + "\n");
             studentservice.deleteByStudentid(studentid);
             return "error";

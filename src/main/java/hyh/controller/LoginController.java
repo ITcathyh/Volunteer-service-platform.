@@ -45,8 +45,6 @@ public class LoginController {
     public String checkLogin(@RequestParam("username") String username,
                              @RequestParam("password") String password,
                              HttpSession session) {
-        System.out.println(username + " "+ password);
-
         if (session.getAttribute("islogin") == null) {
             if (!username.equals(admin.getUsername()) || !password.equals(admin.getPassword())) {
                 Object obj = session.getAttribute("errortime");

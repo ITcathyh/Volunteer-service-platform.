@@ -2,7 +2,7 @@ package hyh.entity;
 
 import java.sql.Timestamp;
 
-public class User extends BaseUser implements Comparable<User> {
+public class User extends BaseUser {
     private long id;
 
     private int selfsex;
@@ -10,8 +10,6 @@ public class User extends BaseUser implements Comparable<User> {
     private int pairtype;
 
     private int type;
-
-    private int degree;
 
     private int status;
 
@@ -47,14 +45,6 @@ public class User extends BaseUser implements Comparable<User> {
 
     public void setType(int type) {
         this.type = type;
-    }
-
-    public int getDegree() {
-        return degree;
-    }
-
-    public void setDegree(int degree) {
-        this.degree = degree;
     }
 
     public Timestamp getCreatetime() {
@@ -112,10 +102,6 @@ public class User extends BaseUser implements Comparable<User> {
                 ", pairid=" + pairid +
                 ", pairtype=" + pairtype +
                 '}';
-    }
-
-    public int compareTo(User o) {
-        return o.degree - this.getDegree();
     }
 
     public String[] makeStrings() {
