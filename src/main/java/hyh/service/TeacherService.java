@@ -34,9 +34,9 @@ public class TeacherService {
         return dao.getAll();
     }
 
-    public List<Teacher> getAllFree() {
-        log.info("获取所有空闲辅学者");
-        return dao.getAllFree();
+    public List<Teacher> getByStatus(int status) {
+        log.info("通过状态获取辅学者");
+        return dao.getByStatus(status);
     }
 
     public int getCount() {

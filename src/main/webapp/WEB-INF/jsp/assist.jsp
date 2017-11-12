@@ -41,7 +41,8 @@
 <!-- Site wrapper -->
 <div class="wrapper">
     <header class="main-header">
-        <a class="logo"><%=Variable.logo%></a>
+        <a class="logo"><%=Variable.logo%>
+        </a>
         <nav class="navbar navbar-static-top" role="navigation">
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" id="menu">
                 <span class="sr-only">Toggle navigation</span>
@@ -127,11 +128,12 @@
                             </table>
                             <ul class="pagination">
                                 <li id="pre"><a href="/assist?page=<%=nowpage == 0?0:nowpage - 1%>"
-                                                rel="prev" title="第<%=nowpage == 0?1:nowpage%>页">&laquo;</a></li>
+                                                id="preurl" rel="prev" title="第<%=nowpage == 0?1:nowpage%>页">&laquo;</a>
+                                </li>
                                 <li class="active"><span><%=nowpage + 1%></span></li>
                                 <li id="next"><a
                                         href="/assist?page=<%=nowpage == (pages - 1)?nowpage:nowpage + 1%>"
-                                        rel="next"
+                                        id="nexturl" rel="next"
                                         title="第<%=nowpage == (pages - 1)?nowpage + 1:nowpage + 2%>页">&raquo;</a></li>
                             </ul>
                         </div><!-- /.box-body -->
@@ -162,10 +164,12 @@
     $(document).ready(function () {
         if (nowpage == 0) {
             $("#pre").addClass("disabled");
+            $("#preurl").attr("href", "javascript:void(0)");
         }
 
         if (nowpage == maxpage) {
             $("#next").addClass("disabled");
+            $("#nexturl").attr("href", "javascript:void(0)");
         }
     });
 </script>

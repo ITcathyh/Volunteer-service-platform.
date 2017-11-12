@@ -42,7 +42,8 @@
 <!-- Site wrapper -->
 <div class="wrapper">
     <header class="main-header">
-        <a class="logo"><%=Variable.logo%></a>
+        <a class="logo"><%=Variable.logo%>
+        </a>
         <nav class="navbar navbar-static-top" role="navigation">
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" id="menu">
                 <span class="sr-only">Toggle navigation</span>
@@ -168,7 +169,7 @@
                                         for (int i = nowpage * MAX_SIZE, len1 = (nowpage + 1) * MAX_SIZE,
                                              len2 = result.size(); i < len1 && i < len2; i++) {
                                             if (result.get(i) instanceof User) {
-                                                User user = (User)result.get(i);
+                                                User user = (User) result.get(i);
 
                                                 if (user.getType() == 1) {
                                                     out.println("<tr onclick=\"javascrtpt:window.location.href='/admingetuser?type=1&studentid=" + user.getStudentid() + "'\">");
@@ -182,7 +183,7 @@
                                                 out.println("<th>" + user.getStudentid() + "</th>");
                                                 out.println("</tr>");
                                             } else if (result.get(i) instanceof Teacher) {
-                                                Teacher teacher = (Teacher)result.get(i);
+                                                Teacher teacher = (Teacher) result.get(i);
 
                                                 out.println("<tr onclick=\"javascrtpt:window.location.href='/admingetassist?studentid=" + teacher.getStudentid() + "'\">");
                                                 out.println("<th>辅学</th>");
@@ -197,12 +198,13 @@
                             <ul class="pagination">
                                 <li id="pre"><a href="/adminqueryuser?page=<%=nowpage == 0?0:nowpage - 1%>
 <%=session.getAttribute("searchtext") == null ? "" : "&searchtext=" + session.getAttribute("searchtext")%>"
-                                                rel="prev" title="第<%=nowpage == 0?1:nowpage%>页">&laquo;</a></li>
+                                                id="preurl" rel="prev" title="第<%=nowpage == 0?1:nowpage%>页">&laquo;</a>
+                                </li>
                                 <li class="active"><span><%=nowpage + 1%></span></li>
                                 <li id="next"><a
                                         href="/adminqueryuser?page=<%=nowpage == (pages - 1)?nowpage:nowpage + 1%>
 <%=session.getAttribute("searchtext") == null ? "" : "&searchtext=" + session.getAttribute("searchtext")%>"
-                                        rel="next"
+                                        id="nexturl" rel="next"
                                         title="第<%=nowpage == (pages - 1)?nowpage + 1:nowpage + 2%>页">&raquo;</a></li>
                             </ul>
                         </div><!-- /.box-body -->
@@ -235,10 +237,12 @@
     $(document).ready(function () {
         if (nowpage == 0) {
             $("#pre").addClass("disabled");
+            $("#preurl").attr("href", "javascript:void(0)");
         }
 
         if (nowpage == maxpage) {
             $("#next").addClass("disabled");
+            $("#nexturl").attr("href", "javascript:void(0)");
         }
     });
 

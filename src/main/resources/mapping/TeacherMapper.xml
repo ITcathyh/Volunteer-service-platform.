@@ -49,8 +49,8 @@
     select * from teacher
   </select>
 
-    <select id="getAllFree" resultMap="BaseResultMap">
-    select * from teacher where status = 0;
+    <select id="getByStatus" resultMap="BaseResultMap">
+    select * from teacher where status = #{status}
   </select>
 
     <update id="update" parameterType="hyh.entity.Teacher">

@@ -45,10 +45,10 @@ public class AdminController {
             breurl = tempContextUrl + "breakfast?id=";
         }
 
-        request.setAttribute("brepairnum", userservice.getFreeCountByType(1));
-        request.setAttribute("breekfastnum", userservice.getCountByType(1));
-        request.setAttribute("stupairnum", userservice.getFreeCountByType(2));
-        request.setAttribute("studyingnum", userservice.getCountByType(2));
+        request.setAttribute("brenotpairednum", userservice.getFreeCountByType(1));
+        request.setAttribute("bretotal", userservice.getCountByType(1));
+        request.setAttribute("stunotpairednum", userservice.getFreeCountByType(2));
+        request.setAttribute("stutotal", userservice.getCountByType(2));
         request.setAttribute("teachernum", teacherservice.getCount());
         request.setAttribute("studentnum", studentservice.getCount());
         request.setAttribute("assiturl", assiturl);

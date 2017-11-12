@@ -65,7 +65,7 @@ public class FileController {
         }
 
         MultipartHttpServletRequest mRequest = (MultipartHttpServletRequest) request;
-        int studentid = 1;
+        int studentid;
         String content = mRequest.getParameter("content");
         String token = mRequest.getParameter("token");
         Object sessiontoke = session.getAttribute("csrftoken");
@@ -79,20 +79,23 @@ public class FileController {
 
             if (files.length < 3) {
                 return "notenough";
-            } else if (teacherservice.getByStudentid(studentid) == null &&
+            } else if (teacherservice.getByStudentidAndStatus(studentid, 1) == null &&
                     studentservice.getByStudentid(studentid) == null) {
                 return "notfound";
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return "error";
         }
 
         String path = FileAction.getAuthDataPath() + TimeUtil.getDeaLTime() + "/";
         String filename;
         File file = new File(path);
 
-        if (!file.exists()) {
-            file.mkdirs();
+        if (!file.exists() && !file.mkdirs()) {
+            Variable.errornum++;
+            log.error("Make floder error\n");
+            return "error";
         }
 
         try {
@@ -113,6 +116,7 @@ public class FileController {
             out.write(content);
             out.close();
         } catch (Exception e) {
+            Variable.errornum++;
             log.error(e);
             return "error";
         }

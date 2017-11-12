@@ -37,7 +37,7 @@ public class AssistController {
     @RequestMapping("/assist")
     public String getToAssist(HttpServletRequest request) {
         int nowpage;
-        List<Teacher> teachers = teacherservice.getAllFree();
+        List<Teacher> teachers = teacherservice.getByStatus(0);
 
         try {
             nowpage = request.getParameter("page") == null ? 0 : Integer.valueOf(request.getParameter("page"));

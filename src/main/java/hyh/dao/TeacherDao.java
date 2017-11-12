@@ -15,7 +15,7 @@ public interface TeacherDao {
 
     List<Teacher> getAll();
 
-    List<Teacher> getAllFree();
+    List<Teacher> getByStatus(int status);
 
     Integer getCount();
 

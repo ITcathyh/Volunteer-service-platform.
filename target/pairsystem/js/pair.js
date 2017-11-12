@@ -3,21 +3,21 @@ var type = 1;
 function showsuccess() {
     $("#msgerror").hide();
     $("#msgsuccess").show();
-    $('html,body').animate({scrollTop:0},'slow');
+    $('html,body').animate({scrollTop: 0}, 'slow');
 }
 
 function showsuccess1(msgtext) {
     $("#ss-msg-success-p").text(msgtext);
     $("#msgerror").hide();
     $("#msgsuccess").show();
-    $('html,body').animate({scrollTop:0},'slow');
+    $('html,body').animate({scrollTop: 0}, 'slow');
 }
 
 function showerror(msgtext) {
     $("#msg-error-p").text(msgtext);
     $("#msgerror").show();
     $("#msgsuccess").hide();
-    $('html,body').animate({scrollTop:0},'slow');
+    $('html,body').animate({scrollTop: 0}, 'slow');
 }
 
 function check(name, studentid, qq, email, phone) {
@@ -179,7 +179,7 @@ $(document).on("click", "#submitpair", function (e) {
 });
 
 /* apply teacher begin */
-function addteacher(name, studentid, qq, email, skill, phone,la) {
+function addteacher(name, studentid, qq, email, skill, phone, la) {
     $.ajax({
         data: "name=" + name + "&studentid=" + studentid +
         "&qq=" + qq + "&email=" + email + "&phone=" + phone + "&selfsex=" + $("#selfsex").val() +
@@ -219,19 +219,19 @@ $(document).on("click", "#submitaddteacher", function (e) {
     if (check(name, studentid, qq, email, phone)) {
         if (skill.length <= 1 || skill.length >= 11) {
             showerror("请输入擅长领域(10字符内)");
-            $('html,body').animate({scrollTop:0},'slow');
+            $('html,body').animate({scrollTop: 0}, 'slow');
         } else {
             var la = Ladda.create(document.querySelector("#submitaddteacher"));
             la.start();
 
-            addteacher(name, studentid, qq, email, skill, phone,la);
+            addteacher(name, studentid, qq, email, skill, phone, la);
         }
     }
 });
 /* apply teacher end */
 
 /*self-studying begin */
-function addstudying(name, studentid, qq, email, phone,la) {
+function addstudying(name, studentid, qq, email, phone, la) {
     $.ajax({
         data: "name=" + name + "&studentid=" + studentid +
         "&qq=" + qq + "&email=" + email + "&phone=" + phone + "&college=" + $("#college").val() +
@@ -275,7 +275,7 @@ $(document).on("click", "#submitaddstudying", function (e) {
         var la = Ladda.create(document.querySelector("#submitaddstudying"));
         la.start();
 
-        addstudying(name, studentid, qq, email, phone,la);
+        addstudying(name, studentid, qq, email, phone, la);
     }
 });
 /*self-studying end */
@@ -368,16 +368,12 @@ function beginpair(la) {
         success: function (response) {
             la.stop();
 
-            if (response == -1) {
+            if (response == -1 || response == 0) {
                 showerror("配对失败，请查看错误日志");
             } else {
-                if (response == "0") {
-                    showerror("配对失败，详情请查看错误日志");
-                } else {
-                    showsuccess1("配对完成,共配对" + response + "对");
-                    nownum -= response << 1;
-                    $("#brepairnum").text(nownum);
-                }
+                showsuccess1("配对完成,共配对" + response + "对");
+                nownum -= response << 1;
+                $("#brenotpairednum").text(nownum);
             }
         }
     });
@@ -685,6 +681,7 @@ $("#submitauthentication").click(function () {
         return false;
     }
 
+    la.start();
     $("#myform").ajaxSubmit(options);
     return false;
 });
@@ -694,6 +691,8 @@ var options = {
     url: "/uploadfile",
     dataType: 'json',
     success: function (response) {
+        la.stop();
+
         if (response == "error") {
             showerror("出现异常，请稍候重试");
         } else if (response == "notenough") {
@@ -707,6 +706,7 @@ var options = {
             showsuccess1("提交成功，请注意提醒对方也要来认证喔");
         }
     }, error: function (data) {
+        la.stop();
         showerror("出现异常，请稍候重试。（注意需上传至少三张照片）");
     }
 };

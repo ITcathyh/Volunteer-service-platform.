@@ -136,11 +136,11 @@
                             <dl class="dl-horizontal">
                                 <dt>早餐未匹配人数</dt>
                                 <dd>
-                                    <span id="brepairnum">${brepairnum}人</span>
-                                    <span id="breekfastnum">(总${breekfastnum}人)</span>
+                                    <span id="brenotpairednum">${brenotpairednum}人</span>
+                                    <span id="bretotal">(总${bretotal}人)</span>
                                 </dd>
                                 <dt>自习未匹配人数</dt>
-                                <dd>${stupairnum}人(总${studyingnum}人)
+                                <dd>${stunotpairednum}人(总${stutotal}人)
                                 </dd>
                                 <dt>辅学者人数</dt>
                                 <dd>${teachernum}人
@@ -274,10 +274,10 @@
 <script type="text/javascript" src="js/spin.min.js"></script>
 <script type="text/javascript" src="js/ladda.min.js"></script>
 <script type="text/javascript">
-    var nownum = ${brepairnum};
+    var brenotpairednum = ${brenotpairednum};
 
     $(document).ready(function () {
-        if (nownum == 0) {
+        if (brenotpairednum  < 2) {
             $("#beginpair").addClass("disabled");
         }
     });

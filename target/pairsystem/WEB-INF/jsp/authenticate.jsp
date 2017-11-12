@@ -23,6 +23,7 @@
     <link href="css/ionicons.min.css" rel="stylesheet">
     <link href="css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/all-skins.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/ladda-themeless.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class="skin-blue">
 <!-- Site wrapper -->
@@ -195,7 +196,11 @@
                                 </div>
                             </div>
                             <div class="box-footer">
-                                <input type="submit" value="提交认证" id="submitauthentication" class="btn btn-primary"/>
+
+                                <button id="submitauthentication" class="btn btn-primary ladda-button" data-style="zoom-in">
+                                    <span class="ladda-label">提交认证</span>
+                                </button>
+                                <!--<input type="submit" value="提交认证" id="submitauthentication" class="btn btn-primary"/> -->
                             </div>
                         </div>
 
@@ -223,8 +228,11 @@
 <script type="text/javascript" src="js/fileinput.min.js"></script>
 <script type="text/javascript" src="js/pair.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/spin.min.js"></script>
+<script type="text/javascript" src="js/ladda.min.js"></script>
 <script type="text/javascript">
     var lockupload = <%=session.getAttribute("lockupload") == null ? 0 : 1%>;
+    var la = Ladda.create(document.querySelector("#submitauthentication"));
 
     $(document).ready(function () {
         if (lockupload == 1) {

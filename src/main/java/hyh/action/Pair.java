@@ -199,6 +199,8 @@ public class Pair {
                     match = temp;
                 }
             } else {
+                Variable.errornum++;
+                log.error("User(id" + temp.getStudentid() + ")'s infomation has gone");
                 it.remove();
             }
         }
