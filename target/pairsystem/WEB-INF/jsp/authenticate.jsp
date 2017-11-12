@@ -30,7 +30,8 @@
 <div class="wrapper">
 
     <header class="main-header">
-        <a class="logo"><%=Variable.logo%></a>
+        <a class="logo"><%=Variable.logo%>
+        </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
 
@@ -99,7 +100,7 @@
 
             <form id="myform" enctype="multipart/form-data">
 
-                <input type="hidden" name="token" id = "token" value="${csrftoken}" />
+                <input type="hidden" name="token" id="token" value="${csrftoken}"/>
 
                 <div class="row">
                     <!-- left column -->
@@ -197,7 +198,8 @@
                             </div>
                             <div class="box-footer">
 
-                                <button id="submitauthentication" class="btn btn-primary ladda-button" data-style="zoom-in">
+                                <button id="submitauthentication" class="btn btn-primary ladda-button"
+                                        data-style="zoom-in">
                                     <span class="ladda-label">提交认证</span>
                                 </button>
                                 <!--<input type="submit" value="提交认证" id="submitauthentication" class="btn btn-primary"/> -->
@@ -219,7 +221,7 @@
         <div class="pull-right hidden-xs">
             Code is beautiful
         </div>
-        <strong>Powered by <a href="#">ITcathyh</a> </strong>
+        <strong>Powered by <a href="<%=Variable.myweb%>">ITcathyh</a> </strong>
     </footer>
 </div>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>

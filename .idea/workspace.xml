@@ -45,115 +45,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="AssistController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hyh/controller/AssistController.java">
+      <file leaf-file-name="error.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="42" column="43" lean-forward="false" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hyh/controller/FileController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="49" column="79" lean-forward="false" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
-              <folding>
-                <element signature="e#4376#4386#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pair.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/pair.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="693" column="18" lean-forward="false" selection-start-line="693" selection-start-column="18" selection-end-line="693" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="authenticate.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/authenticate.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="232" column="55" lean-forward="false" selection-start-line="232" selection-start-column="55" selection-end-line="232" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pair.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hyh/action/Pair.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="179" column="32" lean-forward="true" selection-start-line="179" selection-start-column="32" selection-end-line="179" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="database.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sql/database.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-345">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
+      <file leaf-file-name="FileController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hyh/controller/FileController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="249" column="0" lean-forward="false" selection-start-line="249" selection-start-column="0" selection-end-line="251" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeacherMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/TeacherMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1219">
-              <caret line="53" column="11" lean-forward="false" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
-              <folding>
-                <marker date="1510133868277" expanded="true" signature="1151:1347" ph="insert into teacher... " />
-                <marker date="1510133868277" expanded="true" signature="1433:1512" ph="select * fro... teacher" />
-                <marker date="1510133868277" expanded="true" signature="1589:1645" ph="select * fro... teacher" />
-                <marker date="1510133868277" expanded="true" signature="1720:1763" ph="select * fro... teacher" />
-                <marker date="1510133868277" expanded="true" signature="1831:1859" ph="select count... teacher" />
-                <marker date="1510133868277" expanded="true" signature="1933:1986" ph="select count... teacher" />
-                <marker date="1510133868277" expanded="true" signature="2057:2078" ph="select * fro... teacher" />
-                <marker date="1510133868277" expanded="true" signature="2152:2189" ph="select * fro... teacher" />
-                <marker date="1510133868277" expanded="true" signature="2152:2198" ph="select * fro... teacher" />
-                <marker date="1510133868277" expanded="true" signature="2276:2504" ph="update teach... " />
-                <marker date="1510133868277" expanded="true" signature="2632:2686" ph="delete from " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeacherDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hyh/dao/TeacherDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="11" column="42" lean-forward="false" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeacherService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hyh/service/TeacherService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+            <state relative-caret-position="218">
+              <caret line="70" column="11" lean-forward="false" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -173,7 +79,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>changebren</find>
       <find>adminalterinfo</find>
       <find>submitinfo</find>
       <find>\\</find>
@@ -203,6 +108,7 @@
       <find>beginpair</find>
       <find>20165555</find>
       <find>submitauthentication</find>
+      <find>obj</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -220,9 +126,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/entity/Admin.java" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/util/Zip.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editor.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/getassist.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/getuser.jsp" />
         <option value="$PROJECT_DIR$/src/sql/database.sql" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/entity/Student.java" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/entity/Teacher.java" />
@@ -240,10 +143,6 @@
         <option value="$PROJECT_DIR$/src/main/java/hyh/filter/XssHttpServletRequestWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/interceptor/CSRFInterceptor.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/applyteacher.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/self-studying.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/breakfast.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/hyh/global/Variable.java" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/filter/XssFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/action/Timer.java" />
@@ -252,13 +151,9 @@
         <option value="$PROJECT_DIR$/src/main/java/hyh/action/UserAction.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/entity/AppEmail.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/teacher.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/controller/AdminController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/assist.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/queryuser.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/service/TeacherService.java" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/controller/AssistController.java" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/dao/TeacherDao.java" />
@@ -266,7 +161,18 @@
         <option value="$PROJECT_DIR$/src/main/java/hyh/action/Pair.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/pair.js" />
         <option value="$PROJECT_DIR$/src/main/java/hyh/controller/FileController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hyh/global/Variable.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/queryuser.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/applyteacher.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/assist.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/authenticate.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/breakfast.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editor.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/getassist.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/getuser.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/self-studying.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/teacher.jsp" />
       </list>
     </option>
   </component>
@@ -347,7 +253,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -395,7 +300,42 @@
               <item name="pairsystem - 副本" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hyh" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pairsystem - 副本" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pairsystem - 副本" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hyh" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pairsystem - 副本" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pairsystem - 副本" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hyh" type="462c0819:PsiDirectoryNode" />
+              <item name="global" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pairsystem - 副本" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pairsystem - 副本" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pairsystem - 副本" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pairsystem - 副本" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapping" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pairsystem - 副本" type="b2602c69:ProjectViewProjectNode" />
@@ -439,9 +379,10 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1280,7 +1221,8 @@
       <workItem from="1510239087895" duration="412000" />
       <workItem from="1510239576187" duration="439000" />
       <workItem from="1510381401084" duration="2099000" />
-      <workItem from="1510485792208" duration="1130000" />
+      <workItem from="1510485792208" duration="1390000" />
+      <workItem from="1510487530790" duration="182000" />
     </task>
     <servers />
   </component>
@@ -1317,7 +1259,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="493298000" />
+    <option name="totallyTimeSpent" value="493740000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1330,7 +1272,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25847954" sideWeight="0.3417382" order="7" side_tool="true" content_ui="tabs" />
@@ -1352,11 +1293,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32865497" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25263157" sideWeight="0.6582618" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25263157" sideWeight="0.6582618" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36856222" sideWeight="0.49093106" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37392703" sideWeight="0.49093106" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1389,29 +1330,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/hyh/entity/Teacher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-690">
-          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hyh/interceptor/TimeLimitInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/hyh/service/ServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="29" column="36" lean-forward="true" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hyh/interceptor/SqlInterceptor.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/hyh/filter.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/hyh/util/JsonMapper.java" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1435,31 +1353,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/self-studying.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="263" column="13" lean-forward="true" selection-start-line="263" selection-start-column="13" selection-end-line="263" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/breakfast.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1039">
-          <caret line="357" column="0" lean-forward="true" selection-start-line="357" selection-start-column="0" selection-end-line="357" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/36ec22b1/e9b2616a-b22c-4a3d-a05c-94df42352c46/pairsystem.student">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hyh/global/Variable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -1575,13 +1472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/applyteacher.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="238" column="74" lean-forward="true" selection-start-line="238" selection-start-column="38" selection-end-line="238" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hyh/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
@@ -1600,13 +1490,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1620">
           <caret line="59" column="47" lean-forward="false" selection-start-line="59" selection-start-column="47" selection-end-line="59" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/teacher.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="130" column="38" lean-forward="false" selection-start-line="130" selection-start-column="38" selection-end-line="130" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -1631,24 +1514,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/queryuser.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5589">
-          <caret line="243" column="44" lean-forward="false" selection-start-line="243" selection-start-column="44" selection-end-line="243" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/assist.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="132" column="36" lean-forward="false" selection-start-line="132" selection-start-column="36" selection-end-line="132" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hyh/service/TeacherService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
+        <state relative-caret-position="851">
           <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
           <folding />
         </state>
@@ -1662,10 +1530,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hyh/dao/TeacherDao.java">
+    <entry file="das://table:/36ec22b1/e9b2616a-b22c-4a3d-a05c-94df42352c46/pairsystem.teacher">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/36ec22b1/e9b2616a-b22c-4a3d-a05c-94df42352c46/pairsystem.user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sql/database.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="11" column="42" lean-forward="false" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/pair.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15939">
+          <caret line="693" column="18" lean-forward="false" selection-start-line="693" selection-start-column="18" selection-end-line="693" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hyh/action/Pair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3910">
+          <caret line="179" column="32" lean-forward="false" selection-start-line="179" selection-start-column="32" selection-end-line="179" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1690,66 +1588,130 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/36ec22b1/e9b2616a-b22c-4a3d-a05c-94df42352c46/pairsystem.teacher">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/36ec22b1/e9b2616a-b22c-4a3d-a05c-94df42352c46/pairsystem.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sql/database.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hyh/dao/TeacherDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="161">
+          <caret line="11" column="42" lean-forward="false" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hyh/global/Variable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="19" lean-forward="true" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="249" column="0" lean-forward="false" selection-start-line="249" selection-start-column="0" selection-end-line="251" selection-end-column="37" />
+        <state relative-caret-position="414">
+          <caret line="266" column="79" lean-forward="false" selection-start-line="266" selection-start-column="79" selection-end-line="266" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hyh/controller/FileController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/applyteacher.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="49" column="79" lean-forward="false" selection-start-line="49" selection-start-column="79" selection-end-line="49" selection-end-column="79" />
-          <folding>
-            <element signature="e#4376#4386#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="345">
+          <caret line="235" column="79" lean-forward="false" selection-start-line="235" selection-start-column="79" selection-end-line="235" selection-end-column="79" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/pair.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/assist.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="693" column="18" lean-forward="false" selection-start-line="693" selection-start-column="18" selection-end-line="693" selection-end-column="18" />
+        <state relative-caret-position="506">
+          <caret line="153" column="79" lean-forward="false" selection-start-line="153" selection-start-column="79" selection-end-line="153" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/authenticate.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="232" column="55" lean-forward="false" selection-start-line="232" selection-start-column="55" selection-end-line="232" selection-end-column="55" />
+        <state relative-caret-position="111">
+          <caret line="223" column="79" lean-forward="false" selection-start-line="223" selection-start-column="79" selection-end-line="223" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hyh/action/Pair.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/breakfast.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="179" column="32" lean-forward="true" selection-start-line="179" selection-start-column="32" selection-end-line="179" selection-end-column="32" />
+        <state relative-caret-position="432">
+          <caret line="342" column="79" lean-forward="false" selection-start-line="342" selection-start-column="79" selection-end-line="342" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editor.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="270" column="79" lean-forward="false" selection-start-line="270" selection-start-column="79" selection-end-line="270" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/getassist.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="310" column="79" lean-forward="false" selection-start-line="310" selection-start-column="79" selection-end-line="310" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/queryuser.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="224" column="79" lean-forward="true" selection-start-line="224" selection-start-column="79" selection-end-line="224" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/self-studying.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="262" column="79" lean-forward="false" selection-start-line="262" selection-start-column="79" selection-end-line="262" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/teacher.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="265" column="79" lean-forward="false" selection-start-line="265" selection-start-column="79" selection-end-line="265" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/getuser.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="299" column="79" lean-forward="false" selection-start-line="299" selection-start-column="79" selection-end-line="299" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hyh/controller/FileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="70" column="11" lean-forward="false" selection-start-line="70" selection-start-column="8" selection-end-line="70" selection-end-column="11" />
           <folding />
         </state>
       </provider>

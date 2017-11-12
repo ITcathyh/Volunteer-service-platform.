@@ -263,7 +263,7 @@
         <div class="pull-right hidden-xs">
             Code is beautiful
         </div>
-        <strong>Powered by <a href="#">ITcathyh</a> </strong>
+        <strong>Powered by <a href="<%=Variable.myweb%>">ITcathyh</a> </strong>
     </footer>
 </div><!-- /.content-wrapper -->
 <input type="hidden" name="CSRFToken" id = "token" value="${csrftoken}" />

@@ -268,7 +268,7 @@
         <div class="pull-right hidden-xs">
             Code is beautiful
         </div>
-        <strong>Powered by <a href="#">ITcathyh</a> </strong>
+        <strong>Powered by <a href="<%=Variable.myweb%>">ITcathyh</a> </strong>
     </footer>
 </div>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
