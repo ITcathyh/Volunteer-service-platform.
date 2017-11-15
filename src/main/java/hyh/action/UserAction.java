@@ -94,9 +94,9 @@ public class UserAction {
         return true;
     }
 
-    public static String addUser(User user, UserInfo usefinfo, int type,
-                                 UserService userservice, UserInfoService userinfoservice,
-                                 org.apache.log4j.Logger log) {
+    synchronized public static String addUser(User user, UserInfo usefinfo, int type,
+                                              UserService userservice, UserInfoService userinfoservice,
+                                              org.apache.log4j.Logger log) {
         try {
             if (userservice.getCountByType(1) >= Variable.bremaxnum) {
                 return "full";
@@ -172,9 +172,7 @@ public class UserAction {
         }
     }
 
-    synchronized public static boolean checkBreNum(UserService userservice){
-        synchronized (UserAction.class){
-            return userservice.getCountByType(1) >= Variable.bremaxnum;
-        }
+    synchronized public static boolean checkBreNum(UserService userservice) {
+        return userservice.getCountByType(1) >= Variable.bremaxnum;
     }
 }
