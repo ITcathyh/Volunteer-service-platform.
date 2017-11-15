@@ -5,6 +5,7 @@ package hyh.service;
  */
 
 import hyh.action.Pair;
+import hyh.action.UserAction;
 import hyh.entity.*;
 import hyh.util.Email;
 import hyh.util.Excel;
@@ -52,8 +53,6 @@ public class ServiceTest extends AbstractTransactionalTestNGSpringContextTests {
         assertTrue(teacherservice.update(teacher) == 1);
         assertNotNull(teacherservice.getByStudentid(20114411));*/
 
-        System.out.println(teacherservice.getLimit(0,2));
-
     }
 
     @Test
@@ -93,6 +92,12 @@ public class ServiceTest extends AbstractTransactionalTestNGSpringContextTests {
 
         long endMili = System.currentTimeMillis();
         System.out.println("总耗时为：" + (endMili - startMili) + "毫秒");
+    }
+
+    @Test
+    public void test(){
+        System.out.println(userservice.getCountByStatusAndType(1, 0));
+        System.out.println(userservice.getCountByStatusAndType(1, 1));
     }
 
 }

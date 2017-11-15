@@ -51,7 +51,7 @@ public class QueryUserController {
             nowpage = 0;
         }
 
-        request.setAttribute("result", UserAction.getUsers(genre,studentid,log,userservice,teacherservice));
+        request.setAttribute("result", UserAction.getUsers(genre, studentid, log, userservice, teacherservice));
         request.setAttribute("nowpage", nowpage);
 
         return "queryuser";
@@ -59,7 +59,7 @@ public class QueryUserController {
 
     @RequestMapping("/admingetuser")
     public String getToGetUser(@RequestParam("studentid") String sstudentid, @RequestParam("type") String stype,
-                               HttpServletRequest request, HttpSession session) {
+                               HttpServletRequest request) {
         int studentid, type, show = 0;
 
         try {
@@ -223,18 +223,14 @@ public class QueryUserController {
         int studentid, type;
 
         try {
-            name = request.getParameter("name");
-            qq = request.getParameter("qq");
-            phone = request.getParameter("phone");
-            email = request.getParameter("email");
             studentid = Integer.valueOf(request.getParameter("studentid"));
             type = Integer.valueOf(request.getParameter("type"));
 
-            if (!UserAction.checkNull(name, qq, email, phone) || (type != 1 && type != 2)) {
+            if (type != 1 && type != 2) {
                 return "error";
             }
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
             return "error";
         }
 
@@ -243,10 +239,9 @@ public class QueryUserController {
         if (user == null) {
             return "error";
         } else {
-            user.setPhone(phone);
-            user.setEmail(email);
-            user.setName(name);
-            user.setQq(qq);
+            if (!UserAction.setBaseUser(user, studentid, request)) {
+                return "error";
+            }
 
             if (userservice.update(user) == 1) {
                 if (user.getPairtype() == 2) {

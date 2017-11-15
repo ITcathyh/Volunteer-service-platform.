@@ -5,11 +5,14 @@ import hyh.entity.Teacher;
 import hyh.entity.User;
 import hyh.entity.UserInfo;
 import hyh.global.Variable;
+import hyh.service.StudentService;
 import hyh.service.TeacherService;
 import hyh.service.UserInfoService;
 import hyh.service.UserService;
 import hyh.util.Ip;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -154,7 +157,7 @@ public class UserAction {
             }
         } catch (Exception e) {
             Variable.errornum++;
-            log.error("DateBase is wrong\n" + e + "\n");
+            log.fatal(e);
             return null;
         }
 
@@ -166,6 +169,12 @@ public class UserAction {
             if (obj != null) {
                 list.add(obj);
             }
+        }
+    }
+
+    synchronized public static boolean checkBreNum(UserService userservice){
+        synchronized (UserAction.class){
+            return userservice.getCountByType(1) >= Variable.bremaxnum;
         }
     }
 }

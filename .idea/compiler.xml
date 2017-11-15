@@ -12,7 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="cardsystem" target="1.5" />
-      <module name="pairsystem" target="1.5" />
+      <module name="pairsystem" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

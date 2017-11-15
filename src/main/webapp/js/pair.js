@@ -372,8 +372,8 @@ function beginpair(la) {
                 showerror("配对失败，请查看错误日志");
             } else {
                 showsuccess1("配对完成,共配对" + response + "对");
-                nownum -= response << 1;
-                $("#brenotpairednum").text(nownum);
+                brenotpairednum  -= response << 1;
+                $("#brenotpairednum").text(brenotpairednum );
             }
         }
     });

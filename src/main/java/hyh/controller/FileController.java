@@ -94,7 +94,7 @@ public class FileController {
 
         if (!file.exists() && !file.mkdirs()) {
             Variable.errornum++;
-            log.error("Make floder error\n");
+            log.error("Make floder error");
             return "error";
         }
 
@@ -183,7 +183,8 @@ public class FileController {
             os.close();
             inputStream.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            Variable.errornum++;
+           log.error(e);
         }
 
         return null;

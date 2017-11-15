@@ -52,7 +52,7 @@ public class AdminController {
         request.setAttribute("teachernum", teacherservice.getCount());
         request.setAttribute("studentnum", studentservice.getCount());
         request.setAttribute("assiturl", assiturl);
-        request.setAttribute("breurl", breurl  + Variable.brerurl);
+        request.setAttribute("breurl", breurl + Variable.brerurl);
         request.setAttribute("bremaxnum", Variable.bremaxnum);
         request.setAttribute("errornum", Variable.errornum);
         request.setAttribute("title", Variable.title);
@@ -136,8 +136,7 @@ public class AdminController {
 
         int sended = userservice.getCountByStatusAndType(1, 1);
 
-        return Integer.toString(sended * 100 /
-                (userservice.getCountByStatusAndType(1, 0)) + sended);
+        return Integer.toString(sended * 100 / (userservice.getCountByStatusAndType(1, 0) + sended));
     }
 
     @RequestMapping("/adminalterinfo")

@@ -9,6 +9,7 @@ import hyh.service.UserService;
 import hyh.util.Email;
 import org.apache.log4j.Logger;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Pair {
@@ -16,13 +17,16 @@ public class Pair {
 
     synchronized public static int pair(UserService userservice,
                                            UserInfoService userinfoservice, int type) {
-        List<User> users = userservice.getByTypeAndPairid(type, 0);
+        LinkedList<User> users = new LinkedList<User>(userservice.getByTypeAndPairid(type, 0));
 
         if (users.size() < 2) {
             return -1;
         }
 
-        Stack<User> stack = new Stack<User>();
+        System.out.println(1);
+        Deque<User> stack = new ArrayDeque<User>(32);
+        System.out.println(2);
+        //Stack<User> stack = new Stack<User>();
         User user, match;
         UserInfo userinfo;
         int cot = 0;
@@ -84,7 +88,7 @@ public class Pair {
             return -1;
         }
 
-        List<User> users = userservice.getPairedByType(type);
+        LinkedList<User> users = new LinkedList<User>(userservice.getPairedByType(type));
 
         if (type == 1) {
             List<User> temp = userservice.getByPairtype(3);
@@ -113,16 +117,20 @@ public class Pair {
         }
 
         User user, match;
-        Stack<AppEmail> stacks[];
+
+        Deque<AppEmail> stacks[];
+        //Stack<AppEmail> stacks[];
         int i = 0;
         int len = users.size();
         int size = len / 3 + 1;
 
         if (size < 2) {
             size = 3;
-            stacks = new Stack[]{new Stack<AppEmail>()};
+            stacks = new Deque[]{new ArrayDeque<AppEmail>(size)};
+            //stacks = new Stack[]{new Stack<AppEmail>()};
         } else {
-            stacks = new Stack[]{new Stack<AppEmail>(), new Stack<AppEmail>(), new Stack<AppEmail>()};
+            stacks = new Deque[]{new ArrayDeque<AppEmail>(size), new ArrayDeque<AppEmail>(size),new ArrayDeque<AppEmail>(size)};
+           // stacks = new Stack[]{new Stack<AppEmail>(), new Stack<AppEmail>(), new Stack<AppEmail>()};
         }
 
         while (users.size() > 1) {
@@ -221,6 +229,4 @@ public class Pair {
             return false;
         }
     }
-
-
 }

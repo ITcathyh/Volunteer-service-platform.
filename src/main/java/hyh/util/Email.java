@@ -33,7 +33,8 @@ public class Email {
     volatile private static boolean send[] = new boolean[3];
 
     @Async
-    public void sendEmail(Stack<AppEmail> stack, String genre, UserService userservice, int type) {
+    public void sendEmail(Deque<AppEmail> stack, String genre, UserService userservice, int type) {
+    //public void sendEmail(Stack<AppEmail> stack, String genre, UserService userservice, int type) {
         JavaMailSenderImpl sender = getSender();
         short nowcot = 0;
 
@@ -48,7 +49,7 @@ public class Email {
 
         AppEmail appemail;
 
-        while (!stack.empty()) {
+        while (!stack.isEmpty()) {
             appemail = stack.pop();
 
             if (!sendEmail(appemail, genre, sender)) {

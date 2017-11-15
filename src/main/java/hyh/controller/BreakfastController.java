@@ -44,8 +44,6 @@ public class BreakfastController {
 
         if (token == null || sessiontoke == null || !sessiontoke.toString().equals(token)) {
             return "error";
-        } else if (userservice.getCountByType(1) >= Variable.bremaxnum) {
-            return "full";
         } else if (!Ip.checkIp(userservice.getCountByIpAndType(1, Ip.getIp(request)))) {
             return "ipfull";
         }
@@ -64,7 +62,6 @@ public class BreakfastController {
                 return "error";
             }
         } catch (Exception e) {
-            log.error(e + "\n");
             return "error";
         }
 
@@ -85,6 +82,8 @@ public class BreakfastController {
         if (type == 1) {
             if (buf == null) {
                 return "error";
+            } else if (UserAction.checkBreNum(userservice)) {
+                return "full";
             }
 
             return UserAction.addUser(user, buf, 1, userservice, userinfoservice, log);
@@ -100,8 +99,6 @@ public class BreakfastController {
                     return "error";
                 }
             } catch (Exception e) {
-                Variable.errornum++;
-                log.error(e + "\n");
                 return "error";
             }
 
@@ -121,6 +118,8 @@ public class BreakfastController {
             } else {
                 if (buf == null) {
                     return "error";
+                } else if (UserAction.checkBreNum(userservice)) {
+                    return "full";
                 }
 
                 try {
