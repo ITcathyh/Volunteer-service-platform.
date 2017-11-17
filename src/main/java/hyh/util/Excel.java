@@ -21,7 +21,7 @@ import java.util.Date;
 import java.util.Stack;
 import java.util.concurrent.Callable;
 
-public class Excel {
+public final class Excel {
     private static Logger log = Logger.getLogger("hyh.tuil.Excel");
 
     public static boolean write(UserService userservice, TeacherService teacherservice,

@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="cardsystem:war exploded">
-    <output-path>$PROJECT_DIR$/target/pairsystem</output-path>
+  <artifact type="exploded-war" name="pairsystem:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/pairsystem_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -8,7 +8,6 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
-          <element id="library" level="project" name="Maven: javax:javaee-api:7.0" />
           <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.5.0" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.2.5.RELEASE" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
@@ -44,9 +43,6 @@
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
           <element id="library" level="project" name="Maven: org.apache.poi:poi:3.10.1" />
         </element>
-      </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/pairsystem/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="pairsystem/web/Web" />
     </root>

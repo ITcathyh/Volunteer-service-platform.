@@ -8,8 +8,6 @@ import hyh.service.UserInfoService;
 import hyh.service.UserService;
 import hyh.util.Email;
 import org.apache.log4j.Logger;
-
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Pair {
@@ -23,9 +21,7 @@ public class Pair {
             return -1;
         }
 
-        System.out.println(1);
         Deque<User> stack = new ArrayDeque<User>(32);
-        System.out.println(2);
         //Stack<User> stack = new Stack<User>();
         User user, match;
         UserInfo userinfo;

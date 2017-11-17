@@ -652,6 +652,7 @@ function login(username, password, la) {
 }
 
 $(document).on("click", "#login", function (e) {
+    alert(1);
     var username = $("#username").val();
     var password = $("#password").val();
 

@@ -1,6 +1,6 @@
 package hyh.entity;
 
-public class AppEmail {
+public final class AppEmail {
     private String address;
 
     private String name;

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-public class Zip {
+public final class Zip {
     private static Logger log = Logger.getLogger("hyh.util.Zip");
 
     public static boolean fileToZip(String sourcefilepath, String zipfilepath, String filename) {

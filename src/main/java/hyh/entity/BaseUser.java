@@ -15,59 +15,59 @@ abstract public class BaseUser {
 
     protected int pairid;
 
-    public int getStudentid() {
+    public final int getStudentid() {
         return studentid;
     }
 
-    public void setStudentid(int studentid) {
+    public final void setStudentid(int studentid) {
         this.studentid = studentid;
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public final void setName(String name) {
         this.name = name;
     }
 
-    public String getQq() {
+    public final String getQq() {
         return qq;
     }
 
-    public void setQq(String qq) {
+    public final void setQq(String qq) {
         this.qq = qq;
     }
 
-    public String getPhone() {
+    public final String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public final void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public String getEmail() {
+    public final String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public final void setEmail(String email) {
         this.email = email;
     }
 
-    public int getPairid() {
+    public final int getPairid() {
         return pairid;
     }
 
-    public void setPairid(int pairid) {
+    public final void setPairid(int pairid) {
         this.pairid = pairid;
     }
 
-    public String getIp() {
+    public final String getIp() {
         return ip;
     }
 
-    public void setIp(String ip) {
+    public final void setIp(String ip) {
         this.ip = ip;
     }
 

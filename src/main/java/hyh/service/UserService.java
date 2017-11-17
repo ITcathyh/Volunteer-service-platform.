@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class UserService {
+public final class UserService {
     private Logger log = Logger.getLogger(this.getClass());
     @Autowired
     private UserDao dao;

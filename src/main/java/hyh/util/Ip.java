@@ -2,7 +2,7 @@ package hyh.util;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class Ip {
+public final class Ip {
     private static int maxnum = 2;
 
     public static String getIp(HttpServletRequest request) {

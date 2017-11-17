@@ -20,6 +20,7 @@ import org.springframework.test.context.testng.AbstractTransactionalTestNGSpring
 import org.springframework.test.context.ContextConfiguration;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import static org.testng.Assert.*;
@@ -92,12 +93,6 @@ public class ServiceTest extends AbstractTransactionalTestNGSpringContextTests {
 
         long endMili = System.currentTimeMillis();
         System.out.println("总耗时为：" + (endMili - startMili) + "毫秒");
-    }
-
-    @Test
-    public void test(){
-        System.out.println(userservice.getCountByStatusAndType(1, 0));
-        System.out.println(userservice.getCountByStatusAndType(1, 1));
     }
 
 }

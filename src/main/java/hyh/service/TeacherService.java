@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TeacherService {
+public final class TeacherService {
     private Logger log = Logger.getLogger(this.getClass());
     @Autowired
     private TeacherDao dao;

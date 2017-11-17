@@ -3,7 +3,7 @@ package hyh.entity;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Admin {
+public final class Admin {
     private String username;
     private String password;
 

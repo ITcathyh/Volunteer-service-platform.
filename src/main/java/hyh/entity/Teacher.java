@@ -2,7 +2,7 @@ package hyh.entity;
 
 import java.util.Comparator;
 
-public class Teacher extends BaseUser implements Comparable<Teacher> {
+public final class Teacher extends BaseUser implements Comparable<Teacher> {
     private int id;
 
     private int selfsex;

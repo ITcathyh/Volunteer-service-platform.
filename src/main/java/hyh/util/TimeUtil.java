@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class TimeUtil {
+public final class TimeUtil {
     private static Logger log = Logger.getLogger("hyh.tuil.TimeUtil");
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
     private static final SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");

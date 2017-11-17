@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class UserInfoService {
+public final class UserInfoService {
     private Logger log = Logger.getLogger(this.getClass());
     @Autowired
     private UserInfoDao dao;

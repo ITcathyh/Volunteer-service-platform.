@@ -2,7 +2,7 @@ package hyh.entity;
 
 import java.sql.Timestamp;
 
-public class User extends BaseUser {
+public final class User extends BaseUser {
     private long id;
 
     private int selfsex;
@@ -68,25 +68,14 @@ public class User extends BaseUser {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        User that = (User) o;
+        User user = (User) o;
 
-        if (studentid != that.studentid) return false;
-        if (pairid != that.pairid) return false;
-        if (pairtype != that.pairtype) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (qq != null ? !qq.equals(that.qq) : that.qq != null) return false;
-        return email != null ? email.equals(that.email) : that.email == null;
+        return id == user.id;
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + studentid;
-        result = 31 * result + (qq != null ? qq.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (int) (pairid ^ (pairid >>> 32));
-        result = 31 * result + pairtype;
-        return result;
+        return (int) (id ^ (id >>> 32));
     }
 
     @Override

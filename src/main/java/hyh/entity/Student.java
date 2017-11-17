@@ -1,6 +1,6 @@
 package hyh.entity;
 
-public class Student extends BaseUser {
+public final class Student extends BaseUser {
     private long id;
 
     private String college;

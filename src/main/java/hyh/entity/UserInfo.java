@@ -1,8 +1,6 @@
 package hyh.entity;
 
-import javax.persistence.criteria.CriteriaBuilder;
-
-public class UserInfo {
+public final class UserInfo {
     private int studentid;
 
     private int sex;
