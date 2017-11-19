@@ -55,7 +55,7 @@ public class FileController {
         } else {
             int time = (Integer) obj;
 
-            if (time >= 2) {
+            if (time >= 3) {
                 session.setAttribute("lockupload", 1);
                 session.removeAttribute("uploadtime");
                 return "lockupload";

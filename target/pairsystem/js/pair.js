@@ -651,8 +651,7 @@ function login(username, password, la) {
     });
 }
 
-$(document).on("click", "#login", function (e) {
-    alert(1);
+function checkInfo() {
     var username = $("#username").val();
     var password = $("#password").val();
 
@@ -665,6 +664,16 @@ $(document).on("click", "#login", function (e) {
 
         la.start();
         login(username, password, la);
+    }
+}
+
+$(document).on("click", "#login", function (e) {
+    checkInfo();
+});
+
+$("#password").keydown(function(event){
+    if(event.keyCode == 13){
+        checkInfo();
     }
 });
 /* login end */
