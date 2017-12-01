@@ -14,15 +14,14 @@ public class Pair {
     private static Logger log = Logger.getLogger("hyh.action.Pair");
 
     synchronized public static int pair(UserService userservice,
-                                           UserInfoService userinfoservice, int type) {
+                                        UserInfoService userinfoservice, int type) {
         LinkedList<User> users = new LinkedList<User>(userservice.getByTypeAndPairid(type, 0));
 
         if (users.size() < 2) {
             return -1;
         }
 
-        Deque<User> stack = new ArrayDeque<User>(32);
-        //Stack<User> stack = new Stack<User>();
+        Deque<User> stack = new ArrayDeque<User>(Variable.bremaxnum / 3);
         User user, match;
         UserInfo userinfo;
         int cot = 0;
@@ -87,25 +86,7 @@ public class Pair {
         LinkedList<User> users = new LinkedList<User>(userservice.getPairedByType(type));
 
         if (type == 1) {
-            List<User> temp = userservice.getByPairtype(3);
-            int size = temp.size(), i = 0;
-            User tuser, mathch;
-
-            while (i < size) {
-                tuser = temp.get(i++);
-
-                if (tuser.getPairtype() == 3) {
-                    mathch = userservice.getByStudentidAndType(tuser.getPairid(), 1);
-
-                    if (mathch == null) {
-                        users.add(tuser);
-                    } else {
-                        if (temp.remove(mathch)) {
-                            size--;
-                        }
-                    }
-                }
-            }
+            getLeft(users, userservice);
         }
 
         if (users.size() < 2) {
@@ -115,7 +96,6 @@ public class Pair {
         User user, match;
 
         Deque<AppEmail> stacks[];
-        //Stack<AppEmail> stacks[];
         int i = 0;
         int len = users.size();
         int size = len / 3 + 1;
@@ -123,10 +103,8 @@ public class Pair {
         if (size < 2) {
             size = 3;
             stacks = new Deque[]{new ArrayDeque<AppEmail>(size)};
-            //stacks = new Stack[]{new Stack<AppEmail>()};
         } else {
             stacks = new Deque[]{new ArrayDeque<AppEmail>(size), new ArrayDeque<AppEmail>(size),new ArrayDeque<AppEmail>(size)};
-           // stacks = new Stack[]{new Stack<AppEmail>(), new Stack<AppEmail>(), new Stack<AppEmail>()};
         }
 
         while (users.size() > 1) {
@@ -223,6 +201,28 @@ public class Pair {
             Variable.errornum++;
             log.error("update user error\n" + e);
             return false;
+        }
+    }
+
+    private static void getLeft(LinkedList<User> users, UserService userservice){
+        List<User> temp = userservice.getByPairtype(3);
+        int size = temp.size(), i = 0;
+        User tuser, mathch;
+
+        while (i < size) {
+            tuser = temp.get(i++);
+
+            if (tuser.getPairtype() == 3) {
+                mathch = userservice.getByStudentidAndType(tuser.getPairid(), 1);
+
+                if (mathch == null) {
+                    users.add(tuser);
+                } else {
+                    if (temp.remove(mathch)) {
+                        size--;
+                    }
+                }
+            }
         }
     }
 }

@@ -34,7 +34,6 @@ public class Email {
 
     @Async
     public void sendEmail(Deque<AppEmail> stack, String genre, UserService userservice, int type) {
-    //public void sendEmail(Stack<AppEmail> stack, String genre, UserService userservice, int type) {
         JavaMailSenderImpl sender = getSender();
         short nowcot = 0;
 
@@ -86,10 +85,19 @@ public class Email {
         StringBuilder sb = new StringBuilder("同学您好！我是东北大学志愿者协会的同学，恭喜您" + type + "活动配对成功！" +
                 "下面是您的配对对象的一些信息哟:<br>");
 
-        sb.append("1.她或他的名字是:" + appemail.getName() + "<br>");
-        sb.append("2.她或他的qq是:" + appemail.getQq() + "<br>");
-        sb.append("3.他或她的电话是:" + appemail.getPhone() + "<br>");
+        sb.append("1.她或他的名字是:").append(appemail.getName()).append("<br>");
+        sb.append("2.她或他的qq是:").append(appemail.getQq()).append("<br>");
+        sb.append("3.他或她的电话是:").append(appemail.getPhone()).append("<br>");
         sb.append("同学，赶快拿起手机联系您的小伙伴吧！");
+
+        if (type.equals("辅学")) {
+            sb.append("为了规范志协活动的展开，协会现今建立了信用分制度。<br>" +
+                    "本活动规定如下：<br>" +
+                    "1.在二次认证时一经发现有使用作弊手段者，双方都1周时间内不得参与本活动，并且扣除4信用分<br>" +
+                    "2.当天晚上11点前辅学者和被辅学者中有任何一人不参与认证，不接受逾期认证。辅学者无法获得志愿时长，被辅学者扣除1信用分。<br>" +
+                    "3.若辅学者在两周内辅学了4个人以上，且每次都进行了第二次认证，则增加4信用分。<br>" +
+                    "我们实行这样的制度是为了让大家能够更好地投入到活动中去，希望大家能够理解。");
+        }
 
         return sb.toString();
     }

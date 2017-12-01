@@ -48,6 +48,7 @@ public class BreakfastController {
             return "ipfull";
         }
 
+        sessiontoke = token = null;
         String name, qq, email, id, phone;
         int studentid, selfsex, type;
         User user = new User();

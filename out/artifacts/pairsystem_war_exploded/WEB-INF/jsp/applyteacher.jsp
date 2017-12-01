@@ -29,7 +29,8 @@
 <div class="wrapper">
 
     <header class="main-header">
-        <a class="logo"><%=Variable.logo%></a>
+        <a class="logo"><%=Variable.logo%>
+        </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" id="menu">
@@ -188,15 +189,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">您擅长的领域？</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="skill" autocomplete="off">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">您的学院？</label>
+                                    <label class="col-sm-3 control-label">您的学院</label>
 
                                     <div class="col-sm-9">
                                         <select class="form-control" id="selfcollege">
@@ -208,6 +201,85 @@
                                             <option>马克思主义学院</option>
                                             <option>计算机科学与工程学院</option>
                                             <option>中荷生物医学与信息工程学院</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">擅长的基础课</label>
+
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="basecourse">
+                                            <option>近现代史纲要</option>
+                                            <option>毛泽东思想与社会主义特色理论</option>
+                                            <option>马克思主义原理</option>
+                                            <option>高等数学</option>
+                                            <option>文科数学</option>
+                                            <option>线性代数</option>
+                                            <option>概率统计</option>
+                                            <option>数值分析</option>
+                                            <option>大学物理</option>
+                                            <option>大学物理实验</option>
+                                            <option>大学英语课程</option>
+                                            <option>四六级</option>
+                                            <option>托福雅思</option>
+                                            <option>无</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">擅长的专业课</label>
+
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="professional">
+                                            <option>工商管理</option>
+                                            <option>中央银行业务</option>
+                                            <option>国际结算</option>
+                                            <option>计算机辅助CAD/CAM</option>
+                                            <option>金融学</option>
+                                            <option>金融时间序列分析(2)</option>
+                                            <option>行为金融与有效市场</option>
+                                            <option>生产系统建模与仿真</option>
+                                            <option>当代中国经济热点问题</option>
+                                            <option>社会保障学</option>
+                                            <option>土地管理学</option>
+                                            <option>资本论</option>
+                                            <option>基础工业工程</option>
+                                            <option>金融工程</option>
+                                            <option>技术经济学</option>
+                                            <option>计算机安全与保密</option>
+                                            <option>财务报表阅读与分析(双语)</option>
+                                            <option>现代制造系统</option>
+                                            <option>企业文化</option>
+                                            <option>管理信息系统(二)</option>
+                                            <option>网站设计</option>
+                                            <option>计量经济学导论</option>
+                                            <option>金融法规</option>
+                                            <option>工业应用数理统计</option>
+                                            <option>市场研究方法</option>
+                                            <option>固定收益证券分析(双语)</option>
+                                            <option>投资经济学</option>
+                                            <option>当代世界经济与政治</option>
+                                            <option>企业战略管理</option>
+                                            <option>投资管理</option>
+                                            <option>营销策划</option>
+                                            <option>服务计算概论</option>
+                                            <option>先进制造技术及应用</option>
+                                            <option>多媒体技术</option>
+                                            <option>管理信息系统(3)双语</option>
+                                            <option>运筹学(一)</option>
+                                            <option>服务管理</option>
+                                            <option>人力资源管理</option>
+                                            <option>物流工程进展</option>
+                                            <option>管理统计学</option>
+                                            <option>管理运筹学</option>
+                                            <option>公共关系学</option>
+                                            <option>我国的货币政策</option>
+                                            <option>成本会计学(二)</option>
+                                            <option>高级财务会计</option>
+                                            <option>税务会计与纳税筹划(2)</option>
+                                            <option>无</option>
                                         </select>
                                     </div>
                                 </div>
@@ -236,7 +308,7 @@
         <strong>Powered by <a href="<%=Variable.myweb%>">ITcathyh</a> </strong>
     </footer>
 </div>
-<input type="hidden" name="CSRFToken" id = "token" value="${csrftoken}" />
+<input type="hidden" name="CSRFToken" id="token" value="${csrftoken}"/>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
@@ -246,6 +318,10 @@
 <script type="text/javascript">
     var headers = {};
     headers['requesttoken'] = $("#token").val();
+
+    $("#selfcollege").change(function () {
+        alterChoice($("#selfcollege").find("option:selected").text());
+    });
 </script>
 </body>
 </html>

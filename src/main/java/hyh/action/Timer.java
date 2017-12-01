@@ -32,15 +32,19 @@ public class Timer {
     @Scheduled(cron = "0 55 23 * * ?")
     public void clear() {
         Variable.brerurl = GetRandomString.getRandomString(10);
-        ArrayList<BaseUser> list = new ArrayList<BaseUser>();
         String path = FileAction.getExcelPath() + TimeUtil.getDeaLTime() + "/";
 
         Excel.write(userservice, teacherservice, studentservice, path);
-
         studentservice.deleteAll();
         teacherservice.deleteAll();
         userinfoservice.deleteAll();
         userservice.deleteAll();
+    }
+
+    @Scheduled(cron = "0 0 7 * * ?")
+    public void clearAssist() {
+        studentservice.deleteAll();
+        teacherservice.deleteAll();
     }
 
     @Scheduled(cron = "0 0 8,13,17,20 * * ?")

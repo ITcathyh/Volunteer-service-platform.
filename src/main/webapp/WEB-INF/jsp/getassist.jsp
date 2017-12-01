@@ -182,14 +182,22 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">擅长领域</label>
+                                    <label class="col-sm-3 control-label">擅长的基础课</label>
 
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="teacherskill" autocomplete="off"
-                                               value="${teacher.skill}">
+                                        <input type="text" class="form-control" id="basecourse" autocomplete="off"
+                                               value="${teacher.basecourse}">
                                     </div>
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">擅长的基础课</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="professional" autocomplete="off"
+                                               value="${teacher.professional}">
+                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">学院</label>

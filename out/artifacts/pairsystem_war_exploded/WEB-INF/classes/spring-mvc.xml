@@ -131,8 +131,8 @@
 
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="host" value="smtp.stu.neu.edu.cn"/>
-        <property name="username" value=""/>
-        <property name="password" value=""/>
+        <property name="username" value="20165358@stu.neu.edu.cn"/>
+        <property name="password" value="246914"/>
         <property name="port" value="465"/>
         <property name="protocol" value="smtp"/>
         <property name="defaultEncoding" value="UTF-8"/>

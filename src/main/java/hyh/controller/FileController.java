@@ -75,7 +75,9 @@ public class FileController {
         }
 
         try {
+            sessiontoke = obj = token = null;
             studentid = Integer.valueOf(mRequest.getParameter("studentid"));
+            mRequest = null;
 
             if (files.length < 3) {
                 return "notenough";

@@ -130,6 +130,7 @@ public class AssistController {
             return "ipfull";
         }
 
+        sessiontoke = token = null;
         int studentid, selfsex;
         User user = new User();
 
@@ -189,6 +190,7 @@ public class AssistController {
             return "ipfull";
         }
 
+        sessiontoke = token = null;
         String college;
         int studentid, pairid;
         Student student = new Student();

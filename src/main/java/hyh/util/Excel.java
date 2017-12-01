@@ -86,6 +86,20 @@ public final class Excel {
         row.createCell(i).setCellValue("活动类型");
     }
 
+    private static boolean writeTitle(HSSFRow row, String...strs) {
+        int i = 0;
+
+        for (String str : strs){
+            if (str == null){
+                return false;
+            }
+
+            row.createCell(i++).setCellValue(str);
+        }
+
+        return true;
+    }
+
     private static boolean makeFolder(String foldername) {
         File file = new File(foldername);
 

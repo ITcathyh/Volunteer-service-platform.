@@ -179,11 +179,11 @@ $(document).on("click", "#submitpair", function (e) {
 });
 
 /* apply teacher begin */
-function addteacher(name, studentid, qq, email, skill, phone, la) {
+function addteacher(name, studentid, qq, email, basecourse, professional, phone, la) {
     $.ajax({
         data: "name=" + name + "&studentid=" + studentid +
         "&qq=" + qq + "&email=" + email + "&phone=" + phone + "&selfsex=" + $("#selfsex").val() +
-        "&skill=" + skill + "&college=" + $("#selfcollege").val(),
+        "&basecourse=" + basecourse + "&professional=" + professional + "&college=" + $("#selfcollege").val(),
         type: "post",
         headers: headers,
         url: "/checkaddteacher",
@@ -213,21 +213,249 @@ $(document).on("click", "#submitaddteacher", function (e) {
     var studentid = $("#studentid").val();
     var qq = $("#qq").val();
     var email = $("#email").val();
-    var skill = $("#skill").val();
     var phone = $("#phone").val();
+    var basecourse = $("#basecourse").val();
+    var professional = $("#professional").val();
 
     if (check(name, studentid, qq, email, phone)) {
-        if (skill.length <= 1 || skill.length >= 11) {
-            showerror("请输入擅长领域(10字符内)");
-            $('html,body').animate({scrollTop: 0}, 'slow');
+        if (basecourse == "无" && professional == "无") {
+            showerror("请选择至少一项擅长课程");
         } else {
             var la = Ladda.create(document.querySelector("#submitaddteacher"));
             la.start();
 
-            addteacher(name, studentid, qq, email, skill, phone, la);
+            addteacher(name, studentid, qq, email, basecourse, professional, phone, la);
         }
     }
 });
+
+function alterChoice(choice) {
+    $("#professional").empty();
+
+    if (choice == "工商管理学院") {
+        $("#professional").append("<option>工商管理</option>");
+        $("#professional").append("<option>中央银行业务</option>");
+        $("#professional").append("<option>国际结算</option>");
+        $("#professional").append("<option>计算机辅助CAD/CAM</option>");
+        $("#professional").append("<option>金融学</option>");
+        $("#professional").append("<option>金融时间序列分析(2)</option>");
+        $("#professional").append("<option>行为金融与有效市场</option>");
+        $("#professional").append("<option>生产系统建模与仿真</option>");
+        $("#professional").append("<option>当代中国经济热点问题</option>");
+        $("#professional").append("<option>社会保障学</option>");
+        $("#professional").append("<option>土地管理学</option>");
+        $("#professional").append("<option>资本论</option>");
+        $("#professional").append("<option>基础工业工程</option>");
+        $("#professional").append("<option>金融工程</option>");
+        $("#professional").append("<option>技术经济学</option>");
+        $("#professional").append("<option>计算机安全与保密</option>");
+        $("#professional").append("<option>财务报表阅读与分析(双语)</option>");
+        $("#professional").append("<option>现代制造系统</option>");
+        $("#professional").append("<option>企业文化</option>");
+        $("#professional").append("<option>管理信息系统(二)</option>");
+        $("#professional").append("<option>网站设计</option>");
+        $("#professional").append("<option>计量经济学导论</option>");
+        $("#professional").append("<option>金融法规</option>");
+        $("#professional").append("<option>工业应用数理统计</option>");
+        $("#professional").append("<option>市场研究方法</option>");
+        $("#professional").append("<option>固定收益证券分析(双语)</option>");
+        $("#professional").append("<option>投资经济学</option>");
+        $("#professional").append("<option>当代世界经济与政治</option>");
+        $("#professional").append("<option>企业战略管理</option>");
+        $("#professional").append("<option>投资管理</option>");
+        $("#professional").append("<option>营销策划</option>");
+        $("#professional").append("<option>服务计算概论</option>");
+        $("#professional").append("<option>先进制造技术及应用</option>");
+        $("#professional").append("<option>多媒体技术</option>");
+        $("#professional").append("<option>管理信息系统(3)双语</option>");
+        $("#professional").append("<option>运筹学(一)</option>");
+        $("#professional").append("<option>服务管理</option>");
+        $("#professional").append("<option>人力资源管理</option>");
+        $("#professional").append("<option>物流工程进展</option>");
+        $("#professional").append("<option>管理统计学</option>");
+        $("#professional").append("<option>管理运筹学</option>");
+        $("#professional").append("<option>公共关系学</option>");
+        $("#professional").append("<option>我国的货币政策</option>");
+        $("#professional").append("<option>成本会计学(二)</option>");
+        $("#professional").append("<option>高级财务会计</option>");
+        $("#professional").append("<option>税务会计与纳税筹划(2)</option>");
+    } else if (choice == "软件学院") {
+        $("#professional").append("<option>通信概论</option>");
+        $("#professional").append("<option>算法设计与分析</option>");
+        $("#professional").append("<option>网络安全</option>");
+        $("#professional").append("<option>图像与多媒体新技术</option>");
+        $("#professional").append("<option>企业级服务器系统导论</option>");
+        $("#professional").append("<option>云计算及其安全技术</option>");
+        $("#professional").append("<option>人机交互技术</option>");
+        $("#professional").append("<option>Linux程序设计</option>");
+        $("#professional").append("<option>计算机游戏程序设计</option>");
+        $("#professional").append("<option>虚拟现实设计基础</option>");
+        $("#professional").append("<option>信息安全创业基础</option>");
+        $("#professional").append("<option>多核与并行程序设计</option>");
+        $("#professional").append("<option>数媒创业基础</option>");
+        $("#professional").append("<option>在线互动媒体技术</option>");
+        $("#professional").append("<option>数据可视化技术</option>");
+        $("#professional").append("<option>传感技术与应用</option>");
+        $("#professional").append("<option>后期制作</option>");
+        $("#professional").append("<option>社会计算</option>");
+        $("#professional").append("<option>动画插件编程</option>");
+        $("#professional").append("<option>金融法规</option>");
+        $("#professional").append("<option>金融时间序列分析(2)</option>");
+        $("#professional").append("<option>运筹学(一)</option>");
+        $("#professional").append("<option>现代制造系统</option>");
+        $("#professional").append("<option>行为金融与有效市场</option>");
+        $("#professional").append("<option>固定收益证券分析(双语)</option>");
+        $("#professional").append("<option>服务计算概论</option>");
+        $("#professional").append("<option>软件工程</option>");
+        $("#professional").append("<option>算法分析与设计</option>");
+        $("#professional").append("<option>软件体系结构与设计模式</option>");
+        $("#professional").append("<option>Linux操作系统</option>");
+        $("#professional").append("<option>分布式系统导论</option>");
+        $("#professional").append("<option>编译方法</option>");
+        $("#professional").append("<option>新一代互联网技术</option>");
+        $("#professional").append("<option>Java框架与组件技术</option>");
+        $("#professional").append("<option>移动互联导论</option>");
+        $("#professional").append("<option>主机系统导论</option>");
+        $("#professional").append("<option>Web技术与应用</option>");
+        $("#professional").append("<option>计算机系统安全 </option>");
+    } else if (choice == "生命科学和健康学院") {
+        $("#professional").append("<option>肿瘤学</option>");
+        $("#professional").append("<option>神经生物学</option>");
+        $("#professional").append("<option>干细胞与组织工程</option>");
+        $("#professional").append("<option>细胞工程</option>");
+        $("#professional").append("<option>专业外语</option>");
+        $("#professional").append("<option>免疫学</option>");
+        $("#professional").append("<option>细胞生物学</option>");
+        $("#professional").append("<option>基因工程</option>");
+        $("#professional").append("<option>微生物工程</option>");
+        $("#professional").append("<option>实验动物学</option>");
+        $("#professional").append("<option>细胞工程</option>");
+        $("#professional").append("<option>免疫学</option>");
+        $("#professional").append("<option>细胞生物学</option>");
+        $("#professional").append("<option>基因工程</option>");
+        $("#professional").append("<option>微生物工程</option>");
+        $("#professional").append("<option>实验动物学</option>");
+        $("#professional").append("<option>药用植物</option>");
+        $("#professional").append("<option>发育生物学</option>");
+        $("#professional").append("<option>毛细管电泳 </option>");
+    } else if (choice == "江河建筑学院") {
+        $("#professional").append("<option>建筑结构选型(建)</option>");
+        $("#professional").append("<option>城市设计概论(建)</option>");
+        $("#professional").append("<option>建筑施工(建)</option>");
+        $("#professional").append("<option>建筑经济与业务管理(建)</option>");
+        $("#professional").append("<option>建筑物理(一)</option>");
+        $("#professional").append("<option>建筑力学</option>");
+        $("#professional").append("<option>建筑构造(二)</option>");
+        $("#professional").append("<option>居住区规划原理</option>");
+        $("#professional").append("<option>学科前沿知识讲座</option>");
+    } else if (choice == "文法学院") {
+        $("#professional").append("<option>中国政治制度史</option>");
+        $("#professional").append("<option>国家公务员法</option>");
+        $("#professional").append("<option>商法学</option>");
+        $("#professional").append("<option>税法学</option>");
+        $("#professional").append("<option>环境法学</option>");
+        $("#professional").append("<option>经济法学</option>");
+        $("#professional").append("<option>社会保障学</option>");
+        $("#professional").append("<option>中国政治思想史</option>");
+        $("#professional").append("<option>当代世界经济与政治</option>");
+        $("#professional").append("<option>公共关系学</option>");
+        $("#professional").append("<option>社会政策概论</option>");
+        $("#professional").append("<option>行政职业能力</option>");
+        $("#professional").append("<option>土地管理学</option>");
+        $("#professional").append("<option>企业文化</option>");
+    } else if (choice == "马克思主义学院") {
+        $("#professional").append("<option>当代世界经济与政治</option>");
+    } else if (choice == "计算机科学与工程学院") {
+        $("#professional").append("<option>Java语言及程序设计</option>");
+        $("#professional").append("<option>编译原理</option>");
+        $("#professional").append("<option>信息处理与机器翻译</option>");
+        $("#professional").append("<option>多核并行程序设计(双语)</option>");
+        $("#professional").append("<option>微机原理与程序设计</option>");
+        $("#professional").append("<option>过程控制系统</option>");
+        $("#professional").append("<option>自动控制原理4</option>");
+        $("#professional").append("<option>计算机仿真技术基础</option>");
+        $("#professional").append("<option>管理信息系统(二)</option>");
+        $("#professional").append("<option>自动控制原理2)</option>");
+        $("#professional").append("<option>人工智能技术基础</option>");
+        $("#professional").append("<option>面向对象技术与JAVA程序设计</option>");
+        $("#professional").append("<option>数据库管理系统实现技术</option>");
+        $("#professional").append("<option>超大规模集成电路(VLSI)设计与EDA工程概论</option>");
+        $("#professional").append("<option>微机原理及应用</option>");
+        $("#professional").append("<option>可编程逻辑器件与EDA技术</option>");
+        $("#professional").append("<option>可编程逻辑器件及应用</option>");
+        $("#professional").append("<option>过程控制仪表及装置</option>");
+        $("#professional").append("<option>单片机原理及应用</option>");
+        $("#professional").append("<option>单片机及接口技术</option>");
+        $("#professional").append("<option>专用芯片(ASIC)设计导论</option>");
+        $("#professional").append("<option>电器控制基础与可编程控制器</option>");
+        $("#professional").append("<option>微控制器原理</option>");
+        $("#professional").append("<option>计算机组成原理</option>");
+        $("#professional").append("<option>接口技术</option>");
+        $("#professional").append("<option>电机原理及电机拖动(=)</option>");
+        $("#professional").append("<option>电机原理及拖动(=)双语</option>");
+        $("#professional").append("<option>电力电子电路</option>");
+        $("#professional").append("<option>现代汽车电子技术</option>");
+        $("#professional").append("<option>网站设计</option>");
+        $("#professional").append("<option>基于FPGA的SOPC设计</option>");
+        $("#professional").append("<option>M2M技术概论(双语)</option>");
+        $("#professional").append("<option>计算机图形学基础</option>");
+        $("#professional").append("<option>最优控制</option>");
+        $("#professional").append("<option>自动控制原理</option>");
+        $("#professional").append("<option>控制系统仿真与CAD</option>");
+        $("#professional").append("<option>生物信息学导论</option>");
+        $("#professional").append("<option>建筑智能化概论</option>");
+        $("#professional").append("<option>数学类：数学建模技术</option>");
+        $("#professional").append("<option>普适计算导论</option>");
+        $("#professional").append("<option>误差理论与数据处理</option>");
+        $("#professional").append("<option>组合数学</option>");
+        $("#professional").append("<option>现代优化计算方法</option>");
+        $("#professional").append("<option>智能优化方法</option>");
+        $("#professional").append("<option>通信原理</option>");
+        $("#professional").append("<option>多媒体图像通信</option>");
+        $("#professional").append("<option>无线局域网</option>");
+        $("#professional").append("<option>卫星通信</option>");
+        $("#professional").append("<option>通信系统仿真技术基础</option>");
+        $("#professional").append("<option>多媒体技术</option>");
+        $("#professional").append("<option>计算机网络原理</option>");
+        $("#professional").append("<option>计算机网络技术</option>");
+        $("#professional").append("<option>信息安全基础</option>");
+        $("#professional").append("<option>计算机安全与保密</option>");
+        $("#professional").append("<option>通信电子线路</option>");
+        $("#professional").append("<option>移动网络及其技术</option>");
+        $("#professional").append("<option>数字信号处理2双语</option>");
+        $("#professional").append("<option>实时信号处理技术</option>");
+        $("#professional").append("<option>计算机网络</option>");
+        $("#professional").append("<option>数字信号处理双语</option>");
+        $("#professional").append("<option>数字信号处理</option>");
+        $("#professional").append("<option>数字图像处理与机器视觉</option>");
+        $("#professional").append("<option>激光原理</option>");
+        $("#professional").append("<option>数字图像处理(双语)</option>");
+        $("#professional").append("<option>电磁场与电磁波</option>");
+        $("#professional").append("<option>计算机系统专题</option>");
+        $("#professional").append("<option>现代检测技术及系统</option>");
+        $("#professional").append("<option>数字系统设计</option>");
+        $("#professional").append("<option>操作系统基础</option>");
+        $("#professional").append("<option>电力系统自动化</option>");
+        $("#professional").append("<option>数据库系统实践</option>");
+    } else {
+        $("#professional").append("<option>医学成像技术及系统(1)</option>");
+        $("#professional").append("<option>微机原理与程序设计</option>");
+        $("#professional").append("<option>电力电子电路</option>");
+        $("#professional").append("<option>自动控制原理</option>");
+        $("#professional").append("<option>大学日语</option>");
+        $("#professional").append("<option>电机原理及电机拖动(=)</option>");
+        $("#professional").append("<option>电器控制基础与可编程控制器</option>");
+        $("#professional").append("<option>单片机及接口技术</option>");
+        $("#professional").append("<option>医学信息学</option>");
+        $("#professional").append("<option>数字电子技术基础口</option>");
+        $("#professional").append("<option>数字信号处理</option>");
+        $("#professional").append("<option>分子生物学</option>");
+        $("#professional").append("<option>数据库原理</option>");
+    }
+
+    $("#professional").append("<option>无</option>");
+}
+
 /* apply teacher end */
 
 /*self-studying begin */
@@ -285,7 +513,7 @@ function addstudent(name, studentid, qq, email, college, phone, la) {
     $.ajax({
         data: "name=" + name + "&studentid=" + studentid +
         "&qq=" + qq + "&email=" + email + "&phone=" + phone + "&college=" + college +
-        "&pairid=" + $("#teacherstudentid").val(),
+        "&pairid=" + teastudentid,
         type: "post",
         headers: headers,
         url: "/checkaddstudent",
@@ -307,6 +535,8 @@ function addstudent(name, studentid, qq, email, college, phone, la) {
                 showerror("匹配邮件发送失败，请稍后重试或联系负责人");
             } else if (response == "ipfull") {
                 showerror("提交失败，您的IP申请本次活动已超过次数，若非本人操作，请联系活动负责人");
+            } else if (response == "toomanttimes"){
+                showerror("请选择新的一位辅学者吧！");
             } else {
                 showsuccess();
             }
@@ -372,8 +602,8 @@ function beginpair(la) {
                 showerror("配对失败，请查看错误日志");
             } else {
                 showsuccess1("配对完成,共配对" + response + "对");
-                brenotpairednum  -= response << 1;
-                $("#brenotpairednum").text(brenotpairednum );
+                brenotpairednum -= response << 1;
+                $("#brenotpairednum").text(brenotpairednum);
             }
         }
     });
@@ -634,7 +864,6 @@ function login(username, password, la) {
                 $("#msg-success").hide(10);
                 $("#msg-error").show(100);
                 $("#msg-error-p").html("用户名或密码错误");
-                return false;
             } else if (response == "loginlock") {
                 $("#msg-success").hide(10);
                 $("#msg-error").show(100);
@@ -645,7 +874,6 @@ function login(username, password, la) {
                 $("#msg-success").show(100);
                 $("#msg-success-p").html("登录成功");
                 window.setTimeout("location.href='/admin'", 1000);
-                return true;
             }
         }
     });
@@ -671,8 +899,8 @@ $(document).on("click", "#login", function (e) {
     checkInfo();
 });
 
-$("#password").keydown(function(event){
-    if(event.keyCode == 13){
+$("#password").keydown(function (event) {
+    if (event.keyCode == 13) {
         checkInfo();
     }
 });
