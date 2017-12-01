@@ -77,11 +77,10 @@
         <section class="content-header">
             <h1>
                 填写资料
-                <small>成为辅学者</small>
+                <small>申请辅学</small>
             </h1>
         </section>
 
-        <!-- Main content -->
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
@@ -93,21 +92,18 @@
                     <div id="msgsuccess" class="alert alert-success alert-dismissable" style="display:none">
                         <h4><i class="icon fa fa-info"></i>提交成功</h4>
 
-                        <p id="ss-msg-success-p">我们将会通过邮箱告知您的配对结果</p>
+                        <p id="ss-msg-success-p">我们已通过邮箱告知您的配对结果</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <!-- left column -->
                 <div class="col-md-6">
-                    <!-- general form elements -->
                     <div class="box box-primary">
                         <div class="box-header">
-                            <i class="fa fa-key"></i>
+                            <i class="fa fa-user"></i>
 
                             <h3 class="box-title">辅学人信息</h3>
                         </div>
-                        <!-- /.box-header --><!-- form start -->
 
                         <div class="box-body">
                             <div class="form-horizontal">
@@ -122,42 +118,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">姓名</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="teachername" autocomplete="off"
-                                               value="${teacher.name}">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">手机号</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="teacherphone" autocomplete="off"
-                                               value="${teacher.phone}">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">邮箱</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="teacheremail" autocomplete="off"
-                                               value="${teacher.email}">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">擅长领域</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="teacherskill" autocomplete="off"
-                                               value="${teacher.skill}">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
                                     <label class="col-sm-3 control-label">学院</label>
 
                                     <div class="col-sm-9">
@@ -165,21 +125,37 @@
                                                value="${teacher.college}">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">擅长的基础课</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="basecourse" autocomplete="off"
+                                               value="${teacher.basecourse}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">擅长的专业课</label>
+
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="professional" autocomplete="off"
+                                               value="${teacher.professional}">
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-                    <!-- /.box -->
                 </div>
 
                 <div class="col-md-6">
-                    <!-- general form elements -->
                     <div class="box box-primary">
                         <div class="box-header">
-                            <i class="fa fa-key"></i>
+                            <i class="fa fa-user"></i>
 
                             <h3 class="box-title">基本信息</h3>
                         </div>
-                        <!-- /.box-header --><!-- form start -->
 
                         <div class="box-body">
                             <div class="form-horizontal">
@@ -275,31 +251,20 @@
 <script type="text/javascript" src="js/spin.min.js"></script>
 <script type="text/javascript" src="js/ladda.min.js"></script>
 <script type="text/javascript">
+    var teastudentid = ${teacher.studentid};
     var headers = {};
     headers['requesttoken'] = $("#token").val();
 
-    $(document).on("blur", "#teachername", function (e) {
-        $("#teachername").val("${teacher.name}");
+    $(document).on("blur", "#basecourse", function (e) {
+        $("#basecourse").val("${teacher.basecourse}");
     });
 
-    $(document).on("blur", "#teacherstudentid", function (e) {
-        $("#teacherstudentid").val(${teacher.studentid});
-    });
-
-    $(document).on("blur", "#teacheremail", function (e) {
-        $("#teacheremail").val("${teacher.email}");
-    });
-
-    $(document).on("blur", "#teacherskill", function (e) {
-        $("#teacherskill").val("${teacher.skill}");
+    $(document).on("blur", "#professional", function (e) {
+        $("#professional").val("${teacher.professional}");
     });
 
     $(document).on("blur", "#teachercollege", function (e) {
         $("#teachercollege").val("${teacher.college}");
-    });
-
-    $(document).on("blur", "#teacherphone", function (e) {
-        $("#teacherphone").val("${teacher.phone}");
     });
 </script>
 </body>

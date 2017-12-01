@@ -2,10 +2,7 @@ package hyh.action;
 
 import hyh.entity.BaseUser;
 import hyh.global.Variable;
-import hyh.service.StudentService;
-import hyh.service.TeacherService;
-import hyh.service.UserInfoService;
-import hyh.service.UserService;
+import hyh.service.*;
 import hyh.util.Email;
 import hyh.util.Excel;
 import hyh.util.GetRandomString;
@@ -28,6 +25,8 @@ public class Timer {
     @Autowired
     private StudentService studentservice;
     @Autowired
+    private AssistInforService assistinforservice;
+    @Autowired
     private Email email;
 
     @Scheduled(cron = "0 55 23 * * ?")
@@ -48,5 +47,10 @@ public class Timer {
     public void pairstu() {
         Pair.pair(userservice, userinfoservice, 2);
         Pair.sendPairEmail(email, userservice, 2);
+    }
+
+    @Scheduled(cron = "0 0 0 1 2,7 ?")
+    public void clearAssistInfo() {
+        assistinforservice.deleteAll();
     }
 }

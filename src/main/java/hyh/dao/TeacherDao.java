@@ -21,6 +21,8 @@ public interface TeacherDao {
 
     Integer getCountByIp(String ip);
 
+    Integer isExist(int studentid);
+
     int deleteAll();
 
     int deleteByStudentid(int studentid);

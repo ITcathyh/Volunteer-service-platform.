@@ -106,15 +106,13 @@
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
                                 <tr>
-                                    <th>姓名</th>
-                                    <th>学院</th>
-                                    <th>性别</th>
-                                    <th>擅长领域</th>
+                                    <th>擅长的基础课程</th>
+                                    <th>擅长的专业课程</th>
                                 </tr>
                                 <%
                                     if (teachers == null) {
                                         out.println("<tr>");
-                                        out.println("<th>辅学的小哥哥小姐姐都被抢走咯，快来申请吧~</th>");
+                                        out.println("<th>辅学的小哥哥小姐姐都被抢走咯，快来申请成为“老师”吧~</th>");
                                         out.println("</tr>");
                                     } else {
                                         for (int i = nowpage * MAX_SIZE, len1 = (nowpage + 1) * MAX_SIZE,

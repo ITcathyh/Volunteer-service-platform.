@@ -3,10 +3,7 @@ package hyh.controller;
 import hyh.action.UserAction;
 import hyh.entity.*;
 import hyh.global.Variable;
-import hyh.service.StudentService;
-import hyh.service.TeacherService;
-import hyh.service.UserInfoService;
-import hyh.service.UserService;
+import hyh.service.*;
 import hyh.util.Email;
 import hyh.util.Ip;
 import org.apache.log4j.Logger;
@@ -31,6 +28,8 @@ public class AssistController {
     private TeacherService teacherservice;
     @Autowired
     private StudentService studentservice;
+    @Autowired
+    private AssistInforService assistinforservice;
     @Autowired
     private Email uemail;
 
@@ -69,31 +68,33 @@ public class AssistController {
             return "ipfull";
         }
 
-        String skill, college;
+        String basecourse, professional, college;
         int studentid, selfsex;
         Teacher teacher = new Teacher();
 
         try {
             studentid = Integer.valueOf(request.getParameter("studentid"));
             selfsex = request.getParameter("selfsex").equals("男") ? 1 : 2;
-            skill = request.getParameter("skill");
+            basecourse = request.getParameter("basecourse");
+            professional = request.getParameter("professional");
             college = request.getParameter("college");
 
-            if (college == null || skill == null) {
+            if (!UserAction.checkNull(college, basecourse, professional)) {
                 return "error";
             }
         } catch (Exception e) {
             return "error";
         }
 
-        if (teacherservice.getByStudentid(studentid) != null) {
+        if (teacherservice.isExist(studentid)) {
             return "exist";
         } else if (!UserAction.setBaseUser(teacher, studentid, request)) {
             return "error";
         }
 
         teacher.setCollege(college);
-        teacher.setSkill(skill);
+        teacher.setBasecourse(basecourse);
+        teacher.setProfessional(professional);
         teacher.setSelfsex(selfsex);
 
         try {
@@ -139,7 +140,7 @@ public class AssistController {
             return "error";
         }
 
-        if (userservice.getByStudentidAndType(studentid, 2) != null) {
+        if (userservice.isExist(studentid, 2)) {
             return "exist";
         } else if (!UserAction.setBaseUser(user, studentid, request)) {
             return "error";
@@ -217,6 +218,23 @@ public class AssistController {
             return "booked";
         }
 
+        AssistInfo assistinfo = assistinforservice.get(teacher.getStudentid(), studentid);
+        boolean isexist = true;
+
+        if (assistinfo != null){
+            if (assistinfo.getTime() > 2){
+                return "toomanttimes";
+            }else {
+                assistinfo.setTime((short)2);
+            }
+        }  else {
+            isexist = false;
+            assistinfo = new AssistInfo();
+            assistinfo.setStustudentid(studentid);
+            assistinfo.setTeastudentid(teacher.getStudentid());
+            assistinfo.setTime((short)1);
+        }
+
         try {
             if (studentservice.add(student) == 1) {
                 teacher.setStatus(1);
@@ -227,6 +245,11 @@ public class AssistController {
                             teacher.getQq(), teacher.getPhone(), teacher.getStudentid()), "辅学") &&
                             uemail.sendEmailSafely(new AppEmail(teacher.getEmail(), student.getName(),
                                     student.getQq(), student.getPhone(), student.getStudentid()), "辅学")) {
+                        if (isexist){
+                            assistinforservice.update(assistinfo);
+                        }else {
+                            assistinforservice.add(assistinfo);
+                        }
                         return "done";
                     } else {
                         studentservice.deleteByStudentid(studentid);

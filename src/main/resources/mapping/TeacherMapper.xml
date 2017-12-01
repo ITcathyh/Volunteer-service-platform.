@@ -8,7 +8,8 @@
         <result column="qq" property="qq" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
         <result column="email" property="email" jdbcType="VARCHAR"/>
-        <result column="skill" property="skill" jdbcType="VARCHAR"/>
+        <result column="basecourse" property="basecourse" jdbcType="VARCHAR"/>
+        <result column="professional" property="professional" jdbcType="VARCHAR"/>
         <result column="college" property="college" jdbcType="VARCHAR"/>
         <result column="selfsex" property="selfsex" jdbcType="TINYINT"/>
         <result column="status" property="status" jdbcType="TINYINT"/>
@@ -17,9 +18,9 @@
     </resultMap>
     <insert id="add" parameterType="hyh.entity.Teacher">
     insert into teacher (name, studentid, qq, phone,
-      email, skill,college,selfsex, ip)
+      email, basecourse, professional,college,selfsex, ip)
     values (#{name}, #{studentid}, #{qq}, #{phone},
-      #{email}, #{skill}, #{college},#{selfsex}, #{ip})
+      #{email}, #{basecourse},  #{professional}, #{college},#{selfsex}, #{ip})
   </insert>
 
     <select id="getByStudentidAndStatus" resultMap="BaseResultMap">
@@ -40,6 +41,11 @@
     select count(*) from teacher
   </select>
 
+    <select id="isExist" resultType="Integer">
+        select count(*) from teacher
+        where studentid = #{studentid} limit 1
+    </select>
+
     <select id="getCountByIp" resultType="Integer">
         select count(*) from teacher
         where ip = #{ip}
@@ -59,7 +65,8 @@
     qq = #{qq},
     phone = #{phone},
     email = #{email},
-    skill = #{skill},
+    basecourse = #{basecourse},
+    professional = #{professional},
     college = #{college},
     status = #{status},
     pairid = #{pairid}

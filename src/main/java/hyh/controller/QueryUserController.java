@@ -133,7 +133,7 @@ public class QueryUserController {
     @ResponseBody
     public String checkUpdateAssist(HttpServletRequest request) {
         String teachername, teacherqq, teacheremail,
-                teacherskill, teachercollege, teacherphone;
+                teacherbasecourse, teacherprofessional, teachercollege, teacherphone;
         int teacherstudentid;
 
         try {
@@ -142,10 +142,11 @@ public class QueryUserController {
             teacherphone = request.getParameter("teacherphone");
             teacheremail = request.getParameter("teacheremail");
             teacherstudentid = Integer.valueOf(request.getParameter("teacherstudentid"));
-            teacherskill = request.getParameter("teacherskill");
+            teacherbasecourse = request.getParameter("basecourse");
+            teacherprofessional = request.getParameter("professional");
             teachercollege = request.getParameter("teachercollege");
 
-            if (!UserAction.checkNull(teachername, teacherqq, teacheremail, teacherskill, teachercollege)) {
+            if (!UserAction.checkNull(teachername, teacherqq, teacheremail, teacherbasecourse, teachercollege, teacherprofessional)) {
                 return "error";
             }
         } catch (Exception e) {
@@ -161,7 +162,8 @@ public class QueryUserController {
             teacher.setQq(teacherqq);
             teacher.setEmail(teacheremail);
             teacher.setCollege(teachercollege);
-            teacher.setSkill(teacherskill);
+            teacher.setBasecourse(teacherbasecourse);
+            teacher.setProfessional(teacherprofessional);
             teacher.setPhone(teacherphone);
 
             if (teacherservice.update(teacher) == 1) {

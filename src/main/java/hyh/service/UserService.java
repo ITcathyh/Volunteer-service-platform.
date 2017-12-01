@@ -99,6 +99,11 @@ public final class UserService {
         return result == null ? 0 : result;
     }
 
+    public boolean isExist(int studentid, int type) {
+        log.info("判断用户是否存在");
+        return dao.isExist(studentid, type) >= 1;
+    }
+
     public int update(User record) {
         log.info("更新用户");
         return dao.update(record);

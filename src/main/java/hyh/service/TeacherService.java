@@ -53,6 +53,11 @@ public final class TeacherService {
         return result == null ? 0 : result;
     }
 
+    public boolean isExist(int studentid) {
+        log.info("判断辅学者是否存在");
+        return dao.isExist(studentid) >= 1;
+    }
+
     public int deleteAll() {
         log.info("清除辅学者");
         return dao.deleteAll();

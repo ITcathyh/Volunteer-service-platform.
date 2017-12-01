@@ -60,21 +60,7 @@
         </javaClientGenerator>
 
 
-        <table tableName="user" domainObjectName="user"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-        </table>
-
-
-        <table tableName="teacher" domainObjectName="teacher"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-        </table>
-
-
-        <table tableName="student" domainObjectName="student"
+        <table tableName="assistinfo" domainObjectName="AssistInfo"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

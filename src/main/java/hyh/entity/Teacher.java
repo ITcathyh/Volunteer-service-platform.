@@ -1,7 +1,5 @@
 package hyh.entity;
 
-import java.util.Comparator;
-
 public final class Teacher extends BaseUser implements Comparable<Teacher> {
     private int id;
 
@@ -9,7 +7,9 @@ public final class Teacher extends BaseUser implements Comparable<Teacher> {
 
     private int status;
 
-    private String skill;
+    private String basecourse;
+
+    private String professional;
 
     private String college;
 
@@ -37,12 +37,20 @@ public final class Teacher extends BaseUser implements Comparable<Teacher> {
         this.status = status;
     }
 
-    public String getSkill() {
-        return skill;
+    public String getBasecourse() {
+        return basecourse;
     }
 
-    public void setSkill(String skill) {
-        this.skill = skill;
+    public void setBasecourse(String basecourse) {
+        this.basecourse = basecourse;
+    }
+
+    public String getProfessional() {
+        return professional;
+    }
+
+    public void setProfessional(String professional) {
+        this.professional = professional;
     }
 
     public String getCollege() {
@@ -69,10 +77,8 @@ public final class Teacher extends BaseUser implements Comparable<Teacher> {
     }
 
     public String toString() {
-        return "<th>" + name + "</th>\n" +
-                "<th>" + college + "</th>\n" +
-                "<th>" + (selfsex == 1 ? "男" : "女") + "</th>\n" +
-                "<th>" + skill + "</th>\n";
+        return "<th>" + basecourse + "</th>\n" +
+                "<th>" + professional + "</th>\n";
     }
 
     public int compareTo(Teacher o) {

@@ -65,7 +65,7 @@ public class BreakfastController {
             return "error";
         }
 
-        if (userservice.getByStudentidAndType(studentid, 1) != null) {
+        if (userservice.isExist(studentid,1)) {
             return "exist";
         } else if (!id.equals(Variable.brerurl)) {
             return "error";

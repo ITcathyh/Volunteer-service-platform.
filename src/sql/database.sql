@@ -62,8 +62,10 @@ CREATE TABLE teacher (
   COMMENT '手机号',
   email     VARCHAR(30) NOT NULL
   COMMENT '邮箱',
-  skill     VARCHAR(10) NOT NULL
-  COMMENT '擅长领域',
+  basecourse     VARCHAR(14) DEFAULT '无'
+  COMMENT '基础课程',
+  professional      VARCHAR(20) DEFAULT '无'
+  COMMENT '专业课程',
   college   VARCHAR(15) NOT NULL
   COMMENT '学院',
   selfsex   TINYINT COMMENT '性别，1男，2女',
@@ -100,6 +102,19 @@ CREATE TABLE student (
   COMMENT 'IP地址',
   PRIMARY KEY (id),
   KEY (studentid)
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+CREATE TABLE assistinfo (
+  teastudentid INT NOT NULL
+  COMMENT '辅学者学号',
+  stustudentid INT NOT NULL
+  COMMENT '被辅学者学号',
+  time         TINYINT DEFAULT 1
+  COMMENT '辅学次数',
+  KEY (teastudentid),
+  KEY (stustudentid)
 )
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;

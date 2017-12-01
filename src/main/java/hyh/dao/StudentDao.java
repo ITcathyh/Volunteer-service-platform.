@@ -27,5 +27,7 @@ public interface StudentDao {
 
     Integer getCountByIp(String ip);
 
+    Integer isExist(int studentid);
+
     int update(Student record);
 }

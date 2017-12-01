@@ -70,6 +70,11 @@
         where type = #{type} and pairid = 0
     </select>
 
+    <select id="isExist" resultType="Integer">
+        select count(*) from user
+        where studentid = #{studentid} and type = #{type} limit 1
+    </select>
+
     <delete id="deleteById">
     delete from user
     where id = #{id}

@@ -43,6 +43,11 @@ public final class StudentService {
         return result == null ? 0 : result;
     }
 
+    public boolean isExist(int studentid) {
+        log.info("判断被辅学者是否存在");
+        return dao.isExist(studentid) >= 1;
+    }
+
     public int getPairid(int studentid){
         log.info("获取匹配的辅学者学号");
 

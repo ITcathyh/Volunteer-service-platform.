@@ -38,6 +38,8 @@ public interface UserDao {
 
     Integer getCountByIpAndType( @Param("type") int type, @Param("ip")String ip);
 
+    Integer isExist( @Param("studentid") int studentid, @Param("type") int type);
+
     int update(User record);
 
     int updatePairid(@Param("pairid") int pairid, @Param("id") long id);

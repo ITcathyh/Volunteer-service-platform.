@@ -40,6 +40,11 @@
     select count(*) from teacher
   </select>
 
+    <select id="isExist" resultType="Integer">
+        select count(*) from teacher
+        where studentid = #{studentid} limit 1
+    </select>
+
     <select id="getCountByIp" resultType="Integer">
         select count(*) from teacher
         where ip = #{ip}

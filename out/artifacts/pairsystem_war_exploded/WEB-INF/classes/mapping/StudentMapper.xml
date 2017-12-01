@@ -35,6 +35,11 @@
         where ip = #{ip}
     </select>
 
+    <select id="isExist" resultType="Integer">
+        select count(*) from student
+        where studentid = #{studentid} limit 1
+    </select>
+
     <select id="getPairid" resultType="Integer">
         select pairid from student
         where studentid = #{studentid}
