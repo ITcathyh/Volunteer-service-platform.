@@ -21,6 +21,8 @@
     <link href="css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/all-skins.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/ladda-themeless.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="bookmark"  type="image/x-icon"  href="image/logo.ico"/>
+    <link rel="shortcut icon" href="image/logo.ico">
 </head>
 <body class="login-page">
 <div class="login-box">

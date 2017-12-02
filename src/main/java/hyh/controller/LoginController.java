@@ -40,7 +40,7 @@ public class LoginController {
         return "redirect:/login";
     }
 
-    @RequestMapping("checklogin")
+    @RequestMapping("/checklogin")
     @ResponseBody
     public String checkLogin(@RequestParam("username") String username,
                              @RequestParam("password") String password,

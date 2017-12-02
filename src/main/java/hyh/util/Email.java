@@ -81,7 +81,7 @@ public class Email {
         return false;
     }
 
-    public String getEmailText(AppEmail appemail, String type) {
+    private String getEmailText(AppEmail appemail, String type) {
         StringBuilder sb = new StringBuilder("同学您好！我是东北大学志愿者协会的同学，恭喜您" + type + "活动配对成功！" +
                 "下面是您的配对对象的一些信息哟:<br>");
 
