@@ -21,6 +21,8 @@
     <link href="css/ionicons.min.css" rel="stylesheet">
     <link href="css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/all-skins.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="bookmark"  type="image/x-icon"  href="image/logo.ico"/>
+    <link rel="shortcut icon" href="image/logo.ico">
 </head>
 <body class="skin-blue">
 <!-- Site wrapper -->

@@ -25,6 +25,8 @@
     </STYLE>
 
     <META content="MSHTML 6.00.6000.17117" name=GENERATOR>
+    <link rel="bookmark"  type="image/x-icon"  href="image/logo.ico"/>
+    <link rel="shortcut icon" href="image/logo.ico">
 </HEAD>
 <BODY>
 <SECTION class=mod-page-body>

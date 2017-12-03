@@ -79,6 +79,9 @@ public class AssistController {
             professional = request.getParameter("professional");
             college = request.getParameter("college");
 
+            professional = professional.replace("& #40;","(");
+            professional = professional.replaceAll("& #41.*",")");
+
             if (!UserAction.checkNull(college, basecourse, professional)) {
                 return "error";
             }
@@ -223,18 +226,18 @@ public class AssistController {
         AssistInfo assistinfo = assistinforservice.get(teacher.getStudentid(), studentid);
         boolean isexist = true;
 
-        if (assistinfo != null){
-            if (assistinfo.getTime() > 2){
+        if (assistinfo != null) {
+            if (assistinfo.getTime() > 2) {
                 return "toomanttimes";
-            }else {
-                assistinfo.setTime((short)2);
+            } else {
+                assistinfo.setTime((short) 2);
             }
-        }  else {
+        } else {
             isexist = false;
             assistinfo = new AssistInfo();
             assistinfo.setStustudentid(studentid);
             assistinfo.setTeastudentid(teacher.getStudentid());
-            assistinfo.setTime((short)1);
+            assistinfo.setTime((short) 1);
         }
 
         try {
@@ -243,30 +246,25 @@ public class AssistController {
                 teacher.setPairid(studentid);
 
                 if (teacherservice.update(teacher) == 1) {
-                    if (uemail.sendEmailSafely(new AppEmail(student.getEmail(), teacher.getName(),
-                            teacher.getQq(), teacher.getPhone(), teacher.getStudentid()), "辅学") &&
-                            uemail.sendEmailSafely(new AppEmail(teacher.getEmail(), student.getName(),
-                                    student.getQq(), student.getPhone(), student.getStudentid()), "辅学")) {
-                        if (isexist){
-                            assistinforservice.update(assistinfo);
-                        }else {
-                            assistinforservice.add(assistinfo);
-                        }
-                        return "done";
+                    uemail.sendEmailSafely(new AppEmail(student.getEmail(), teacher.getName(),
+                            teacher.getQq(), teacher.getPhone(), teacher.getStudentid()), "辅学");
+                    uemail.sendEmailSafely(new AppEmail(teacher.getEmail(), student.getName(),
+                            student.getQq(), student.getPhone(), student.getStudentid()), "辅学");
+
+                    if (isexist) {
+                        assistinforservice.update(assistinfo);
                     } else {
-                        studentservice.deleteByStudentid(studentid);
-                        teacher.setPairid(0);
-                        teacher.setStatus(0);
-                        teacherservice.update(teacher);
-                        return "error";
+                        assistinforservice.add(assistinfo);
                     }
+
+                    return "done";
                 }
             } else {
                 studentservice.deleteByStudentid(studentid);
             }
         } catch (Exception e) {
             Variable.errornum++;
-            log.error(e + "\n");
+            log.error(e);
             studentservice.deleteByStudentid(studentid);
             return "error";
         }

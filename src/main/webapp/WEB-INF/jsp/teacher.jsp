@@ -94,7 +94,7 @@
                     <div id="msgsuccess" class="alert alert-success alert-dismissable" style="display:none">
                         <h4><i class="icon fa fa-info"></i>提交成功</h4>
 
-                        <p id="ss-msg-success-p">我们已通过邮箱告知您的配对结果</p>
+                        <p id="ss-msg-success-p">我们将通过邮箱告知您的配对结果</p>
                     </div>
                 </div>
             </div>

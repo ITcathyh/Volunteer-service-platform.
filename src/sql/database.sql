@@ -64,7 +64,7 @@ CREATE TABLE teacher (
   COMMENT '邮箱',
   basecourse     VARCHAR(14) DEFAULT '无'
   COMMENT '基础课程',
-  professional      VARCHAR(20) DEFAULT '无'
+  professional      VARCHAR(35) DEFAULT '无'
   COMMENT '专业课程',
   college   VARCHAR(15) NOT NULL
   COMMENT '学院',

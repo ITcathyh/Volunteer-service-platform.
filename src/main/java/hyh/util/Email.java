@@ -1,20 +1,15 @@
 package hyh.util;
 
-import com.sun.org.apache.regexp.internal.RE;
 import hyh.entity.AppEmail;
-import hyh.entity.BaseUser;
-import hyh.entity.User;
 import hyh.global.Variable;
 import hyh.service.UserService;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.*;
 
@@ -71,14 +66,13 @@ public class Email {
         return sendEmail(appemail.getAddress(), getEmailText(appemail, genre), getSender());
     }
 
-    public boolean sendEmailSafely(AppEmail appemail, String genre) {
+    @Async
+    public void sendEmailSafely(AppEmail appemail, String genre) {
         for (int i = 1; i <= 3; i++) {
             if (sendEmail(appemail.getAddress(), getEmailText(appemail, genre), getSender(i))) {
-                return true;
+                return;
             }
         }
-
-        return false;
     }
 
     private String getEmailText(AppEmail appemail, String type) {
@@ -88,7 +82,7 @@ public class Email {
         sb.append("1.她或他的名字是:").append(appemail.getName()).append("<br>");
         sb.append("2.她或他的qq是:").append(appemail.getQq()).append("<br>");
         sb.append("3.他或她的电话是:").append(appemail.getPhone()).append("<br>");
-        sb.append("同学，赶快拿起手机联系您的小伙伴吧！");
+        sb.append("同学，赶快拿起手机联系您的小伙伴吧！<br><br>");
 
         if (type.equals("辅学")) {
             sb.append("为了规范志协活动的展开，协会现今建立了信用分制度。<br>" +

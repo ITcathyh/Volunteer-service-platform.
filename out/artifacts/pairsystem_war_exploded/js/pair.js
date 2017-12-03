@@ -443,7 +443,7 @@ function alterChoice(choice) {
         $("#professional").append("<option>电力电子电路</option>");
         $("#professional").append("<option>自动控制原理</option>");
         $("#professional").append("<option>大学日语</option>");
-        $("#professional").append("<option>电机原理及电机拖动(=)</option>");
+        $("#professional").append("<option>电机原理及电机拖动(二)</option>");
         $("#professional").append("<option>电器控制基础与可编程控制器</option>");
         $("#professional").append("<option>单片机及接口技术</option>");
         $("#professional").append("<option>医学信息学</option>");
